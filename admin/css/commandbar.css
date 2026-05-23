@@ -1,0 +1,736 @@
+/*!
+ * CommandBar – admin stylesheet
+ * Plugin URI: https://kunalpareek.in/commandbar
+ * License:    GPL v2 or later
+ *
+ * Table of contents:
+ *   1. CSS custom properties (design tokens)
+ *   2. Overlay (scrim)
+ *   3. Palette container
+ *   4. Search input row
+ *   5. Results list
+ *   6. Result item
+ *   7. Group label
+ *   8. Empty state
+ *   9. Toast notifications
+ *  10. Floating trigger button
+ *  11. Dark mode overrides
+ *  12. Reduced-motion overrides
+ *  13. RTL support
+ *  14. Settings page styles
+ */
+
+/* ============================================================
+   1. CSS custom properties (design tokens)
+   ============================================================ */
+
+.commandbar-palette-wrapper {
+	/* Palette dimensions */
+	--cb-palette-width: 640px;
+	--cb-palette-max-height: 60vh;
+	--cb-palette-radius: 12px;
+
+	/* Palette colours — light (default) */
+	--cb-bg: #ffffff;
+	--cb-overlay-bg: rgba(0, 0, 0, 0.50);
+	--cb-border: #e5e7eb;
+	--cb-input-border: #e5e7eb;
+	--cb-result-hover: rgba(0, 0, 0, 0.05);
+	--cb-result-active-bg: rgba(0, 0, 0, 0.07);
+	--cb-text-primary: #0a0a0a;
+	--cb-text-secondary: #6b7280;
+	--cb-text-group: #9ca3af;
+	--cb-icon-color: #6b7280;
+	--cb-shortcut-bg: rgba(0, 0, 0, 0.06);
+	--cb-shortcut-border: rgba(0, 0, 0, 0.15);
+	--cb-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+	--cb-focus-ring: 0 0 0 2px #2271b1;
+
+	/* Typography */
+	--cb-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+		Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+	--cb-input-size: 18px;
+	--cb-result-title-size: 14px;
+	--cb-result-desc-size: 12px;
+	--cb-group-size: 11px;
+
+	/* Spacing */
+	--cb-input-padding-v: 16px;
+	--cb-input-padding-h: 20px;
+	--cb-result-height: 52px;
+	--cb-result-padding-h: 16px;
+	--cb-group-padding: 8px 16px 4px;
+
+	/* Animation */
+	--cb-open-duration: 150ms;
+	--cb-close-duration: 100ms;
+	--cb-ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+	--cb-ease-in: cubic-bezier(0.4, 0, 1, 1);
+
+	/* Accent — falls back to WordPress blue; overridden by WP colour schemes */
+	--cb-accent: var(--wp-components-color-accent, #2271b1);
+}
+
+/* ============================================================
+   2. Overlay (scrim)
+   ============================================================ */
+
+#commandbar-overlay {
+	position: fixed;
+	inset: 0;
+	z-index: 999999;
+	background: var(--cb-overlay-bg);
+	-webkit-backdrop-filter: blur(4px);
+	backdrop-filter: blur(4px);
+	display: flex;
+	align-items: flex-start;
+	justify-content: center;
+	padding-top: 10vh;
+	opacity: 0;
+	transition: opacity var(--cb-open-duration) var(--cb-ease-out);
+}
+
+#commandbar-overlay.cb-open {
+	opacity: 1;
+}
+
+#commandbar-overlay.cb-closing {
+	opacity: 0;
+	transition: opacity var(--cb-close-duration) var(--cb-ease-in);
+}
+
+/* ============================================================
+   3. Palette container
+   ============================================================ */
+
+.commandbar-palette-wrapper {
+	position: relative;
+	width: var(--cb-palette-width);
+	max-width: 90vw;
+	background: var(--cb-bg);
+	border-radius: var(--cb-palette-radius);
+	box-shadow: var(--cb-shadow);
+	border: 1px solid var(--cb-border);
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	transform: scale(0.96) translateY(-8px);
+	transition:
+		transform var(--cb-open-duration) var(--cb-ease-out),
+		opacity var(--cb-open-duration) var(--cb-ease-out);
+	opacity: 0;
+}
+
+#commandbar-overlay.cb-open .commandbar-palette-wrapper {
+	transform: scale(1) translateY(0);
+	opacity: 1;
+}
+
+#commandbar-overlay.cb-closing .commandbar-palette-wrapper {
+	transform: scale(0.96) translateY(-8px);
+	opacity: 0;
+	transition:
+		transform var(--cb-close-duration) var(--cb-ease-in),
+		opacity var(--cb-close-duration) var(--cb-ease-in);
+}
+
+/* ============================================================
+   4. Search input row
+   ============================================================ */
+
+.cb-input-row {
+	display: flex;
+	align-items: center;
+	padding: 0 var(--cb-input-padding-h);
+	border-bottom: 1px solid var(--cb-input-border);
+	flex-shrink: 0;
+	gap: 10px;
+}
+
+.cb-input-icon {
+	color: var(--cb-icon-color);
+	flex-shrink: 0;
+	display: flex;
+	align-items: center;
+}
+
+.cb-input-icon .dashicons {
+	font-size: 20px;
+	width: 20px;
+	height: 20px;
+}
+
+#commandbar-input {
+	flex: 1;
+	border: 0;
+	outline: none;
+	background: transparent;
+	font-family: var(--cb-font-family);
+	font-size: var(--cb-input-size);
+	color: var(--cb-text-primary);
+	padding: var(--cb-input-padding-v) 0;
+	margin: 0;
+	box-shadow: none;
+	line-height: 1.4;
+}
+
+#commandbar-input::placeholder {
+	color: var(--cb-text-secondary);
+}
+
+/* Remove the default WordPress input styling that may bleed in. */
+#commandbar-input:focus {
+	box-shadow: none;
+	border: 0;
+	outline: none;
+}
+
+.cb-input-actions {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	flex-shrink: 0;
+}
+
+.cb-shortcut-badge {
+	display: flex;
+	align-items: center;
+	gap: 3px;
+	font-family: var(--cb-font-family);
+	font-size: 11px;
+	color: var(--cb-text-secondary);
+}
+
+.cb-shortcut-badge kbd {
+	background: var(--cb-shortcut-bg);
+	border: 1px solid var(--cb-shortcut-border);
+	border-radius: 4px;
+	padding: 2px 5px;
+	font-family: var(--cb-font-family);
+	font-size: 11px;
+	color: var(--cb-text-secondary);
+	line-height: 1.5;
+	box-shadow: none;
+}
+
+.cb-clear-btn {
+	background: none;
+	border: none;
+	cursor: pointer;
+	padding: 4px;
+	color: var(--cb-text-secondary);
+	border-radius: 4px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: color 80ms;
+}
+
+.cb-clear-btn:hover {
+	color: var(--cb-text-primary);
+}
+
+.cb-clear-btn:focus-visible {
+	outline: none;
+	box-shadow: var(--cb-focus-ring);
+}
+
+.cb-clear-btn .dashicons {
+	font-size: 16px;
+	width: 16px;
+	height: 16px;
+}
+
+/* ============================================================
+   5. Results list
+   ============================================================ */
+
+#commandbar-results {
+	overflow-y: auto;
+	max-height: calc(var(--cb-palette-max-height) - 57px);
+	-webkit-overflow-scrolling: touch;
+	scroll-padding-top: 28px; /* keep group labels visible */
+	padding-bottom: 8px;
+}
+
+/* Custom scrollbar — subtle, not distracting */
+#commandbar-results::-webkit-scrollbar {
+	width: 6px;
+}
+
+#commandbar-results::-webkit-scrollbar-track {
+	background: transparent;
+}
+
+#commandbar-results::-webkit-scrollbar-thumb {
+	background: var(--cb-border);
+	border-radius: 3px;
+}
+
+/* ============================================================
+   6. Result item
+   ============================================================ */
+
+.cb-result-item {
+	display: flex;
+	align-items: center;
+	height: var(--cb-result-height);
+	padding: 0 var(--cb-result-padding-h);
+	gap: 12px;
+	cursor: pointer;
+	border-radius: 6px;
+	margin: 0 6px;
+	transition: background 80ms;
+	text-decoration: none;
+	color: inherit;
+	position: relative;
+}
+
+.cb-result-item:hover {
+	background: var(--cb-result-hover);
+}
+
+.cb-result-item[aria-selected="true"],
+.cb-result-item.cb-active {
+	background: var(--cb-result-active-bg);
+	outline: none;
+}
+
+/* Visible focus indicator (keyboard navigation). */
+.cb-result-item:focus-visible,
+.cb-result-item[aria-selected="true"]:focus-visible {
+	outline: none;
+	box-shadow: inset 0 0 0 2px var(--cb-accent);
+}
+
+.cb-result-icon {
+	flex-shrink: 0;
+	display: flex;
+	align-items: center;
+	color: var(--cb-icon-color);
+	transition: color 80ms;
+}
+
+.cb-result-item[aria-selected="true"] .cb-result-icon,
+.cb-result-item.cb-active .cb-result-icon {
+	color: var(--cb-accent);
+}
+
+.cb-result-icon .dashicons {
+	font-size: 20px;
+	width: 20px;
+	height: 20px;
+}
+
+.cb-result-body {
+	flex: 1;
+	min-width: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 1px;
+}
+
+.cb-result-title {
+	font-family: var(--cb-font-family);
+	font-size: var(--cb-result-title-size);
+	font-weight: 500;
+	color: var(--cb-text-primary);
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	line-height: 1.4;
+}
+
+.cb-result-desc {
+	font-family: var(--cb-font-family);
+	font-size: var(--cb-result-desc-size);
+	color: var(--cb-text-secondary);
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	line-height: 1.4;
+}
+
+.cb-result-shortcut {
+	flex-shrink: 0;
+	display: flex;
+	align-items: center;
+	gap: 3px;
+}
+
+.cb-result-shortcut kbd {
+	background: var(--cb-shortcut-bg);
+	border: 1px solid var(--cb-shortcut-border);
+	border-radius: 4px;
+	padding: 2px 5px;
+	font-family: var(--cb-font-family);
+	font-size: 11px;
+	color: var(--cb-text-secondary);
+	line-height: 1.5;
+	box-shadow: none;
+}
+
+/* Confirm-mode indicator */
+.cb-result-item.cb-confirm-pending .cb-result-title::after {
+	content: " — Press Enter to confirm";
+	font-weight: 400;
+	color: var(--cb-text-secondary);
+	font-size: 12px;
+}
+
+/* ============================================================
+   7. Group label
+   ============================================================ */
+
+.cb-group-label {
+	padding: var(--cb-group-padding);
+	font-family: var(--cb-font-family);
+	font-size: var(--cb-group-size);
+	font-weight: 600;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	color: var(--cb-text-group);
+	line-height: 1.4;
+	user-select: none;
+	position: sticky;
+	top: 0;
+	background: var(--cb-bg);
+	z-index: 1;
+}
+
+/* ============================================================
+   8. Empty state
+   ============================================================ */
+
+.cb-empty-state {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 32px 20px;
+	color: var(--cb-text-secondary);
+	font-family: var(--cb-font-family);
+	font-size: 14px;
+	text-align: center;
+	gap: 8px;
+}
+
+.cb-empty-state .dashicons {
+	font-size: 28px;
+	width: 28px;
+	height: 28px;
+	color: var(--cb-border);
+}
+
+.cb-status-bar {
+	flex-shrink: 0;
+	border-top: 1px solid var(--cb-border);
+	padding: 6px 16px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 12px;
+}
+
+.cb-status-hint {
+	font-family: var(--cb-font-family);
+	font-size: 11px;
+	color: var(--cb-text-secondary);
+	display: flex;
+	align-items: center;
+	gap: 6px;
+}
+
+.cb-status-hint kbd {
+	background: var(--cb-shortcut-bg);
+	border: 1px solid var(--cb-shortcut-border);
+	border-radius: 4px;
+	padding: 1px 4px;
+	font-family: var(--cb-font-family);
+	font-size: 10px;
+	color: var(--cb-text-secondary);
+	box-shadow: none;
+}
+
+/* ============================================================
+   9. Toast notifications
+   ============================================================ */
+
+#commandbar-toast-region {
+	position: fixed;
+	bottom: 24px;
+	left: 50%;
+	transform: translateX(-50%);
+	z-index: 1000000;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 8px;
+	pointer-events: none;
+}
+
+.cb-toast {
+	pointer-events: auto;
+	background: #1a1a1a;
+	color: #ffffff;
+	font-family: var(--cb-font-family);
+	font-size: 13px;
+	padding: 10px 18px;
+	border-radius: 8px;
+	box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+	max-width: 320px;
+	text-align: center;
+	opacity: 0;
+	transform: translateY(8px);
+	transition:
+		opacity 150ms var(--cb-ease-out),
+		transform 150ms var(--cb-ease-out);
+	line-height: 1.4;
+}
+
+.cb-toast.cb-toast-visible {
+	opacity: 1;
+	transform: translateY(0);
+}
+
+.cb-toast.cb-toast-error {
+	background: #c0392b;
+}
+
+.cb-toast.cb-toast-success {
+	background: #1a7340;
+}
+
+/* ============================================================
+   10. Floating trigger button
+   ============================================================ */
+
+#commandbar-trigger {
+	position: fixed;
+	z-index: 99998;
+	bottom: 20px;
+	right: 20px;
+	background: var(--cb-accent);
+	color: #ffffff;
+	border: none;
+	border-radius: 50px;
+	padding: 10px 16px;
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	cursor: pointer;
+	box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+	font-family: var(--cb-font-family);
+	font-size: 13px;
+	font-weight: 500;
+	transition:
+		transform 150ms var(--cb-ease-out),
+		box-shadow 150ms var(--cb-ease-out),
+		opacity 150ms var(--cb-ease-out);
+	white-space: nowrap;
+}
+
+#commandbar-trigger.cb-position-bottom-left {
+	right: auto;
+	left: 20px;
+}
+
+#commandbar-trigger .dashicons {
+	font-size: 16px;
+	width: 16px;
+	height: 16px;
+}
+
+#commandbar-trigger:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 6px 20px rgba(0, 0, 0, 0.30);
+}
+
+#commandbar-trigger:active {
+	transform: translateY(0);
+}
+
+#commandbar-trigger:focus-visible {
+	outline: none;
+	box-shadow: var(--cb-focus-ring), 0 4px 14px rgba(0, 0, 0, 0.25);
+}
+
+#commandbar-trigger .cb-trigger-label {
+	display: none;
+}
+
+@media (min-width: 960px) {
+	#commandbar-trigger .cb-trigger-label {
+		display: inline;
+	}
+}
+
+.cb-trigger-dismiss {
+	background: rgba(255, 255, 255, 0.2);
+	border: none;
+	border-radius: 50%;
+	width: 18px;
+	height: 18px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	color: rgba(255, 255, 255, 0.85);
+	padding: 0;
+	margin-left: 4px;
+	flex-shrink: 0;
+	transition: background 80ms;
+}
+
+.cb-trigger-dismiss:hover {
+	background: rgba(255, 255, 255, 0.35);
+}
+
+.cb-trigger-dismiss:focus-visible {
+	outline: 2px solid #fff;
+	outline-offset: 1px;
+}
+
+.cb-trigger-dismiss .dashicons {
+	font-size: 12px;
+	width: 12px;
+	height: 12px;
+}
+
+/* ============================================================
+   11. Dark mode overrides
+   ============================================================ */
+
+/* Floating trigger button — dark theme: dark background + white text. */
+#commandbar-trigger.cb-theme-dark {
+	background: #1e1e1e;
+	color: #f5f5f5;
+	box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5);
+}
+
+#commandbar-trigger.cb-theme-dark:hover {
+	box-shadow: 0 6px 20px rgba(0, 0, 0, 0.65);
+}
+
+#commandbar-trigger.cb-theme-dark .cb-trigger-dismiss {
+	color: rgba(255, 255, 255, 0.75);
+	background: rgba(255, 255, 255, 0.12);
+}
+
+#commandbar-trigger.cb-theme-dark .cb-trigger-dismiss:hover {
+	background: rgba(255, 255, 255, 0.25);
+}
+
+/* Floating trigger button — light theme: accent background + white text (default WP look). */
+#commandbar-trigger.cb-theme-light {
+	background: #2271b1;
+	color: #ffffff;
+}
+
+#commandbar-trigger.cb-theme-light .cb-trigger-dismiss {
+	color: rgba(255, 255, 255, 0.85);
+	background: rgba(255, 255, 255, 0.2);
+}
+
+#commandbar-trigger.cb-theme-light .cb-trigger-dismiss:hover {
+	background: rgba(255, 255, 255, 0.35);
+}
+
+/* Explicit dark theme (set via plugin settings). */
+.commandbar-palette-wrapper.cb-theme-dark,
+/* Auto dark: detect WordPress admin dark colour scheme. */
+.cb-scheme-midnight .commandbar-palette-wrapper,
+.cb-scheme-coffee .commandbar-palette-wrapper,
+[data-commandbar-dark="true"] .commandbar-palette-wrapper {
+	--cb-bg: #1e1e1e;
+	--cb-border: #2d2d2d;
+	--cb-input-border: #2d2d2d;
+	--cb-result-hover: rgba(255, 255, 255, 0.06);
+	--cb-result-active-bg: rgba(255, 255, 255, 0.10);
+	--cb-text-primary: #f5f5f5;
+	--cb-text-secondary: #9ca3af;
+	--cb-text-group: #6b7280;
+	--cb-icon-color: #9ca3af;
+	--cb-shortcut-bg: rgba(255, 255, 255, 0.08);
+	--cb-shortcut-border: rgba(255, 255, 255, 0.15);
+}
+
+/* ============================================================
+   12. Reduced-motion overrides
+   ============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+	#commandbar-overlay,
+	.commandbar-palette-wrapper,
+	.cb-toast,
+	.cb-result-item,
+	#commandbar-trigger {
+		transition: none !important;
+		animation: none !important;
+	}
+
+	/* Still show the palette — just without animation. */
+	#commandbar-overlay {
+		opacity: 1;
+	}
+
+	.commandbar-palette-wrapper {
+		transform: scale(1) translateY(0);
+		opacity: 1;
+	}
+
+	#commandbar-overlay.cb-closing .commandbar-palette-wrapper {
+		transform: scale(1) translateY(0);
+	}
+}
+
+/* ============================================================
+   13. RTL support
+   ============================================================ */
+
+[dir="rtl"] .cb-input-row {
+	flex-direction: row-reverse;
+}
+
+[dir="rtl"] .cb-result-item {
+	flex-direction: row-reverse;
+}
+
+[dir="rtl"] .cb-result-body {
+	text-align: right;
+}
+
+[dir="rtl"] #commandbar-trigger {
+	right: auto;
+	left: 20px;
+}
+
+[dir="rtl"] #commandbar-trigger.cb-position-bottom-left {
+	left: auto;
+	right: 20px;
+}
+
+[dir="rtl"] #commandbar-toast-region {
+	left: auto;
+	right: 50%;
+	transform: translateX(50%);
+}
+
+/* ============================================================
+   14. Settings page styles
+   ============================================================ */
+
+.wrap .commandbar-settings-grid {
+	max-width: 720px;
+}
+
+.wrap .form-table kbd {
+	background: #f0f0f1;
+	border: 1px solid #dcdcde;
+	border-radius: 4px;
+	padding: 2px 6px;
+	font-family: var(--cb-font-family, monospace);
+	font-size: 12px;
+	color: #3c434a;
+	box-shadow: none;
+}

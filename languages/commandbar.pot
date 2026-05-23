@@ -1,0 +1,654 @@
+# Copyright (C) 2026 Kunal Pareek
+# This file is distributed under the GPL v2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: CommandBar 1.0.0\n"
+"Report-Msgid-Bugs-To: https://github.com/KunalPareek21/commandbar/issues\n"
+"POT-Creation-Date: 2026-05-20T00:00:00+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2026-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"X-Generator: WP-CLI 2.x\n"
+"X-Domain: commandbar\n"
+
+#. Plugin Name of the plugin
+msgid "CommandBar"
+msgstr ""
+
+#. Plugin URI of the plugin
+msgid "https://kunalpareek.in/commandbar"
+msgstr ""
+
+#. Description of the plugin
+msgid "A lightweight keyboard-first command palette for WordPress admin. Press CMD+K or CTRL+K anywhere in wp-admin to instantly search posts, pages, users, settings, and run actions without touching the mouse."
+msgstr ""
+
+#. Author of the plugin
+msgid "Kunal Pareek"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "https://kunalpareek.in"
+msgstr ""
+
+#: includes/class-commandbar-admin.php
+msgid "CommandBar"
+msgstr ""
+
+#: includes/class-commandbar-admin.php
+msgid "Your WordPress admin. At the speed of thought. Press CMD+K or CTRL+K anywhere in wp-admin to open the command palette."
+msgstr ""
+
+#: includes/class-commandbar-admin.php
+msgid "Save Settings"
+msgstr ""
+
+#: includes/class-commandbar-admin.php
+msgid "Keyboard Shortcut"
+msgstr ""
+
+#: includes/class-commandbar-admin.php
+msgid "Open / Close"
+msgstr ""
+
+#: includes/class-commandbar-admin.php
+msgid "on macOS"
+msgstr ""
+
+#: includes/class-commandbar-admin.php
+msgid "on Windows / Linux"
+msgstr ""
+
+#: includes/class-commandbar-admin.php
+msgid "Navigate results"
+msgstr ""
+
+#: includes/class-commandbar-admin.php
+msgid "Execute highlighted command"
+msgstr ""
+
+#: includes/class-commandbar-admin.php
+msgid "Close palette"
+msgstr ""
+
+#: includes/class-commandbar-admin.php
+msgid "Search users"
+msgstr ""
+
+#: includes/class-commandbar-admin.php
+msgid "Type @ then your search term"
+msgstr ""
+
+#: includes/class-commandbar-admin.php
+msgid "Search settings pages"
+msgstr ""
+
+#: includes/class-commandbar-admin.php
+msgid "Type > then your search term"
+msgstr ""
+
+#: includes/class-commandbar-admin.php
+msgid "Search plugins"
+msgstr ""
+
+#: includes/class-commandbar-admin.php
+msgid "Type + then your search term"
+msgstr ""
+
+#: includes/class-commandbar-admin.php
+msgid "About CommandBar"
+msgstr ""
+
+#: includes/class-commandbar-admin.php
+#. translators: 1: opening anchor tag, 2: closing anchor tag
+msgid "Version %1$s &mdash; %2$sView on GitHub%3$s"
+msgstr ""
+
+#. translators: Placeholder text inside the command palette input.
+#: includes/class-commandbar-admin.php
+msgid "Type a command or search\u2026"
+msgstr ""
+
+#. translators: Label for the Recently Used command group.
+#: includes/class-commandbar-admin.php
+msgid "Recently Used"
+msgstr ""
+
+#. translators: Shown inside the palette when no results match the query.
+#: includes/class-commandbar-admin.php
+msgid "No results found."
+msgstr ""
+
+#. translators: Shown while REST API search is in progress.
+#: includes/class-commandbar-admin.php
+msgid "Searching\u2026"
+msgstr ""
+
+#. translators: Accessible label for the command palette dialog.
+#: includes/class-commandbar-admin.php
+msgid "Command palette"
+msgstr ""
+
+#. translators: Tooltip on the floating trigger button.
+#: includes/class-commandbar-admin.php
+msgid "Open CommandBar"
+msgstr ""
+
+#. translators: Aria label for the close button.
+#: includes/class-commandbar-admin.php
+msgid "Close CommandBar"
+msgstr ""
+
+#. translators: Label shown inside search input when empty.
+#: includes/class-commandbar-admin.php
+msgid "CMD+K"
+msgstr ""
+
+#. translators: Confirmation prompt before executing a destructive command.
+#: includes/class-commandbar-admin.php
+msgid "Press Enter again to confirm"
+msgstr ""
+
+#. translators: Success toast for rewrite rules flushed.
+#: includes/class-commandbar-admin.php
+msgid "Rewrite rules flushed successfully."
+msgstr ""
+
+#. translators: Error toast when an action fails.
+#: includes/class-commandbar-admin.php
+msgid "Action failed. Please try again."
+msgstr ""
+
+#. translators: %d is replaced with the number of search results.
+#: includes/class-commandbar-admin.php
+msgid "Showing %d result(s)"
+msgstr ""
+
+#. translators: Logout confirmation message.
+#: includes/class-commandbar-admin.php
+msgid "Press Enter again to log out"
+msgstr ""
+
+#. translators: Dark mode toggle — switched to dark.
+#: includes/class-commandbar-admin.php
+msgid "Dark mode enabled"
+msgstr ""
+
+#. translators: Dark mode toggle — switched to light.
+#: includes/class-commandbar-admin.php
+msgid "Dark mode disabled"
+msgstr ""
+
+#. translators: Dismiss the floating trigger button for this session.
+#: includes/class-commandbar-admin.php
+msgid "Dismiss"
+msgstr ""
+
+#: includes/class-commandbar-settings.php
+msgid "General"
+msgstr ""
+
+#: includes/class-commandbar-settings.php
+msgid "Enable CommandBar"
+msgstr ""
+
+#: includes/class-commandbar-settings.php
+msgid "Activate the command palette across all wp-admin pages."
+msgstr ""
+
+#: includes/class-commandbar-settings.php
+msgid "Show floating trigger button"
+msgstr ""
+
+#: includes/class-commandbar-settings.php
+msgid "Display a floating button in the corner of wp-admin as an alternative way to open the command palette."
+msgstr ""
+
+#: includes/class-commandbar-settings.php
+msgid "Floating button position"
+msgstr ""
+
+#: includes/class-commandbar-settings.php
+msgid "Bottom Right"
+msgstr ""
+
+#: includes/class-commandbar-settings.php
+msgid "Bottom Left"
+msgstr ""
+
+#: includes/class-commandbar-settings.php
+msgid "Show recent commands"
+msgstr ""
+
+#: includes/class-commandbar-settings.php
+msgid "Show recently executed commands when the palette opens with an empty input."
+msgstr ""
+
+#: includes/class-commandbar-settings.php
+msgid "Number of recent commands"
+msgstr ""
+
+#: includes/class-commandbar-settings.php
+msgid "Appearance"
+msgstr ""
+
+#: includes/class-commandbar-settings.php
+msgid "Palette theme"
+msgstr ""
+
+#: includes/class-commandbar-settings.php
+msgid "Auto (follows WordPress admin scheme)"
+msgstr ""
+
+#: includes/class-commandbar-settings.php
+msgid "Light"
+msgstr ""
+
+#: includes/class-commandbar-settings.php
+msgid "Dark"
+msgstr ""
+
+#: includes/class-commandbar-settings.php
+msgid "Show command icons"
+msgstr ""
+
+#: includes/class-commandbar-settings.php
+msgid "Display Dashicons next to each command in the results list."
+msgstr ""
+
+#: includes/class-commandbar-settings.php
+msgid "Show keyboard shortcut hints"
+msgstr ""
+
+#: includes/class-commandbar-settings.php
+msgid "Show keyboard shortcut badges inside command results."
+msgstr ""
+
+#: includes/class-commandbar-settings.php
+msgid "Advanced"
+msgstr ""
+
+#: includes/class-commandbar-settings.php
+msgid "Enable for these roles"
+msgstr ""
+
+#: includes/class-commandbar-settings.php
+msgid "CommandBar will only be loaded for users with one of the selected roles."
+msgstr ""
+
+#: includes/class-commandbar-rest-api.php
+msgid "You must be logged in to use CommandBar."
+msgstr ""
+
+#: includes/class-commandbar-rest-api.php
+msgid "You do not have permission to perform this action."
+msgstr ""
+
+#: includes/class-commandbar-rest-api.php
+msgid "Rewrite rules flushed successfully."
+msgstr ""
+
+#: includes/class-commandbar-rest-api.php
+msgid "Unknown action requested."
+msgstr ""
+
+#: includes/class-commandbar-rest-api.php
+#. translators: 1: Post type label, 2: Post status label
+msgid "%1$s \u00b7 %2$s"
+msgstr ""
+
+#: includes/class-commandbar-rest-api.php
+msgid "Published"
+msgstr ""
+
+#: includes/class-commandbar-rest-api.php
+msgid "Draft"
+msgstr ""
+
+#: includes/class-commandbar-rest-api.php
+msgid "Pending Review"
+msgstr ""
+
+#: includes/class-commandbar-rest-api.php
+msgid "Scheduled"
+msgstr ""
+
+#: includes/class-commandbar-rest-api.php
+msgid "Pages"
+msgstr ""
+
+#: includes/class-commandbar-rest-api.php
+msgid "Posts"
+msgstr ""
+
+#: includes/class-commandbar-rest-api.php
+#. translators: 1: Username/login, 2: Role name
+msgid "@%1$s \u00b7 %2$s"
+msgstr ""
+
+#: includes/class-commandbar-rest-api.php
+msgid "Users"
+msgstr ""
+
+#: includes/class-commandbar-rest-api.php
+msgid "Active"
+msgstr ""
+
+#: includes/class-commandbar-rest-api.php
+msgid "Inactive"
+msgstr ""
+
+#: includes/class-commandbar-rest-api.php
+msgid "Plugins"
+msgstr ""
+
+#: includes/class-commandbar-commands.php
+msgid "New Post"
+msgstr ""
+
+#: includes/class-commandbar-commands.php
+msgid "Create a new blog post"
+msgstr ""
+
+#: includes/class-commandbar-commands.php
+msgid "New Page"
+msgstr ""
+
+#: includes/class-commandbar-commands.php
+msgid "Create a new page"
+msgstr ""
+
+#: includes/class-commandbar-commands.php
+msgid "Upload Media"
+msgstr ""
+
+#: includes/class-commandbar-commands.php
+msgid "Add images, videos or files to the media library"
+msgstr ""
+
+#: includes/class-commandbar-commands.php
+msgid "All Posts"
+msgstr ""
+
+#: includes/class-commandbar-commands.php
+msgid "View and manage all posts"
+msgstr ""
+
+#: includes/class-commandbar-commands.php
+msgid "All Pages"
+msgstr ""
+
+#: includes/class-commandbar-commands.php
+msgid "View and manage all pages"
+msgstr ""
+
+#: includes/class-commandbar-commands.php
+msgid "Media Library"
+msgstr ""
+
+#: includes/class-commandbar-commands.php
+msgid "Browse all uploaded media files"
+msgstr ""
+
+#: includes/class-commandbar-commands.php
+msgid "Draft Posts"
+msgstr ""
+
+#: includes/class-commandbar-commands.php
+msgid "View all draft posts"
+msgstr ""
+
+#: includes/class-commandbar-commands.php
+msgid "Scheduled Posts"
+msgstr ""
+
+#: includes/class-commandbar-commands.php
+msgid "View posts scheduled for future publication"
+msgstr ""
+
+#: includes/class-commandbar-commands.php
+msgid "Comments"
+msgstr ""
+
+#: includes/class-commandbar-commands.php
+msgid "Manage and moderate comments"
+msgstr ""
+
+#: includes/class-commandbar-commands.php
+msgid "Content"
+msgstr ""
+
+#: includes/class-commandbar-commands.php
+msgid "Themes"
+msgstr ""
+
+#: includes/class-commandbar-commands.php
+msgid "Browse and activate themes"
+msgstr ""
+
+#: includes/class-commandbar-commands.php
+msgid "Customize"
+msgstr ""
+
+#: includes/class-commandbar-commands.php
+msgid "Open the WordPress Customizer"
+msgstr ""
+
+#: includes/class-commandbar-commands.php
+msgid "Widgets"
+msgstr ""
+
+#: includes/class-commandbar-commands.php
+msgid "Manage sidebar and footer widgets"
+msgstr ""
+
+#: includes/class-commandbar-commands.php
+msgid "Menus"
+msgstr ""
+
+#: includes/class-commandbar-commands.php
+msgid "Manage navigation menus"
+msgstr ""
+
+#: includes/class-commandbar-commands.php
+msgid "Site Editor"
+msgstr ""
+
+#: includes/class-commandbar-commands.php
+msgid "Open the Full Site Editor (FSE)"
+msgstr ""
+
+#: includes/class-commandbar-commands.php
+msgid "Appearance"
+msgstr ""
+
+#: includes/class-commandbar-commands.php
+msgid "All Plugins"
+msgstr ""
+
+#: includes/class-commandbar-commands.php
+msgid "View all installed plugins"
+msgstr ""
+
+#: includes/class-commandbar-commands.php
+msgid "Add Plugin"
+msgstr ""
+
+#: includes/class-commandbar-commands.php
+msgid "Search and install new plugins from WordPress.org"
+msgstr ""
+
+#: includes/class-commandbar-commands.php
+msgid "Plugin Updates"
+msgstr ""
+
+#: includes/class-commandbar-commands.php
+msgid "View plugins that have available updates"
+msgstr ""
+
+#: includes/class-commandbar-commands.php
+msgid "General Settings"
+msgstr ""
+
+#: includes/class-commandbar-commands.php
+msgid "Site title, tagline, timezone and more"
+msgstr ""
+
+#: includes/class-commandbar-commands.php
+msgid "Writing Settings"
+msgstr ""
+
+#: includes/class-commandbar-commands.php
+msgid "Default post category, post format and editor settings"
+msgstr ""
+
+#: includes/class-commandbar-commands.php
+msgid "Reading Settings"
+msgstr ""
+
+#: includes/class-commandbar-commands.php
+msgid "Homepage display, blog pages and feed settings"
+msgstr ""
+
+#: includes/class-commandbar-commands.php
+msgid "Discussion Settings"
+msgstr ""
+
+#: includes/class-commandbar-commands.php
+msgid "Comment settings, moderation and notifications"
+msgstr ""
+
+#: includes/class-commandbar-commands.php
+msgid "Permalinks"
+msgstr ""
+
+#: includes/class-commandbar-commands.php
+msgid "URL structure and slug settings"
+msgstr ""
+
+#: includes/class-commandbar-commands.php
+msgid "Privacy Settings"
+msgstr ""
+
+#: includes/class-commandbar-commands.php
+msgid "Privacy policy page and GDPR settings"
+msgstr ""
+
+#: includes/class-commandbar-commands.php
+msgid "Settings"
+msgstr ""
+
+#: includes/class-commandbar-commands.php
+msgid "All Users"
+msgstr ""
+
+#: includes/class-commandbar-commands.php
+msgid "View and manage all user accounts"
+msgstr ""
+
+#: includes/class-commandbar-commands.php
+msgid "Add New User"
+msgstr ""
+
+#: includes/class-commandbar-commands.php
+msgid "Create a new user account"
+msgstr ""
+
+#: includes/class-commandbar-commands.php
+msgid "Your Profile"
+msgstr ""
+
+#: includes/class-commandbar-commands.php
+msgid "Edit your user profile and account settings"
+msgstr ""
+
+#: includes/class-commandbar-commands.php
+msgid "Import"
+msgstr ""
+
+#: includes/class-commandbar-commands.php
+msgid "Import content from another platform or file"
+msgstr ""
+
+#: includes/class-commandbar-commands.php
+msgid "Export"
+msgstr ""
+
+#: includes/class-commandbar-commands.php
+msgid "Export content as an XML file"
+msgstr ""
+
+#: includes/class-commandbar-commands.php
+msgid "Site Health"
+msgstr ""
+
+#: includes/class-commandbar-commands.php
+msgid "Diagnose your site performance and security"
+msgstr ""
+
+#: includes/class-commandbar-commands.php
+msgid "Site Health Info"
+msgstr ""
+
+#: includes/class-commandbar-commands.php
+msgid "Detailed system and server information"
+msgstr ""
+
+#: includes/class-commandbar-commands.php
+msgid "Erase Personal Data"
+msgstr ""
+
+#: includes/class-commandbar-commands.php
+msgid "Remove personal data for a specific user (GDPR)"
+msgstr ""
+
+#: includes/class-commandbar-commands.php
+msgid "Tools"
+msgstr ""
+
+#: includes/class-commandbar-commands.php
+msgid "Flush Rewrite Rules"
+msgstr ""
+
+#: includes/class-commandbar-commands.php
+msgid "Clear and regenerate all permalink rewrite rules"
+msgstr ""
+
+#: includes/class-commandbar-commands.php
+msgid "Check for Updates"
+msgstr ""
+
+#: includes/class-commandbar-commands.php
+msgid "Visit the WordPress updates screen"
+msgstr ""
+
+#: includes/class-commandbar-commands.php
+msgid "Log Out"
+msgstr ""
+
+#: includes/class-commandbar-commands.php
+msgid "Sign out of your WordPress account"
+msgstr ""
+
+#: includes/class-commandbar-commands.php
+msgid "Toggle Dark Mode"
+msgstr ""
+
+#: includes/class-commandbar-commands.php
+msgid "Switch between light and dark admin appearance"
+msgstr ""
+
+#: includes/class-commandbar-commands.php
+msgid "CommandBar Settings"
+msgstr ""
+
+#: includes/class-commandbar-commands.php
+msgid "Configure the CommandBar command palette"
+msgstr ""
+
+#: includes/class-commandbar-commands.php
+msgid "Actions"
+msgstr ""
