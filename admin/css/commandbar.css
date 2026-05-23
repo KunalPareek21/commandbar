@@ -24,6 +24,16 @@
    1. CSS custom properties (design tokens)
    ============================================================ */
 
+/* Global accent colour — defined on :root so #commandbar-trigger
+   (which lives directly on body) can inherit it. */
+:root {
+	--cb-accent: var(--wp-components-color-accent, #2271b1);
+	--cb-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+		Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+	--cb-ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+	--cb-ease-in: cubic-bezier(0.4, 0, 1, 1);
+	--cb-focus-ring: 0 0 0 2px #2271b1;
+}
 .commandbar-palette-wrapper {
 	/* Palette dimensions */
 	--cb-palette-width: 640px;
@@ -44,11 +54,8 @@
 	--cb-shortcut-bg: rgba(0, 0, 0, 0.06);
 	--cb-shortcut-border: rgba(0, 0, 0, 0.15);
 	--cb-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
-	--cb-focus-ring: 0 0 0 2px #2271b1;
 
 	/* Typography */
-	--cb-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-		Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 	--cb-input-size: 18px;
 	--cb-result-title-size: 14px;
 	--cb-result-desc-size: 12px;
@@ -64,11 +71,6 @@
 	/* Animation */
 	--cb-open-duration: 150ms;
 	--cb-close-duration: 100ms;
-	--cb-ease-out: cubic-bezier(0.16, 1, 0.3, 1);
-	--cb-ease-in: cubic-bezier(0.4, 0, 1, 1);
-
-	/* Accent — falls back to WordPress blue; overridden by WP colour schemes */
-	--cb-accent: var(--wp-components-color-accent, #2271b1);
 }
 
 /* ============================================================
@@ -510,7 +512,7 @@
 	z-index: 99998;
 	bottom: 20px;
 	right: 20px;
-	background: var(--cb-accent);
+	background: var(--cb-accent, #2271b1);
 	color: #ffffff;
 	border: none;
 	border-radius: 50px;
@@ -520,13 +522,13 @@
 	gap: 8px;
 	cursor: pointer;
 	box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
-	font-family: var(--cb-font-family);
+	font-family: var(--cb-font-family, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif);
 	font-size: 13px;
 	font-weight: 500;
 	transition:
-		transform 150ms var(--cb-ease-out),
-		box-shadow 150ms var(--cb-ease-out),
-		opacity 150ms var(--cb-ease-out);
+		transform 150ms var(--cb-ease-out, cubic-bezier(0.16, 1, 0.3, 1)),
+		box-shadow 150ms var(--cb-ease-out, cubic-bezier(0.16, 1, 0.3, 1)),
+		opacity 150ms var(--cb-ease-out, cubic-bezier(0.16, 1, 0.3, 1));
 	white-space: nowrap;
 }
 

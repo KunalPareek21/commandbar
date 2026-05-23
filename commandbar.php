@@ -3,7 +3,7 @@
  * Plugin Name: CommandBar
  * Plugin URI:  https://kunalpareek.in/commandbar
  * Description: A lightweight keyboard-first command palette for WordPress admin. Press CMD+K or CTRL+K anywhere in wp-admin to instantly search posts, pages, users, settings, and run actions without touching the mouse.
- * Version:     1.0.1
+ * Version:     1.0.2
  * Author:      Kunal Pareek
  * Author URI:  https://kunalpareek.in
  * License:     GPL v2 or later
@@ -22,7 +22,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // Plugin version constant.
-define( 'COMMANDBAR_VERSION', '1.0.1' );
+define( 'COMMANDBAR_VERSION', '1.0.2' );
 
 // Absolute path to the plugin directory (with trailing slash).
 define( 'COMMANDBAR_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
