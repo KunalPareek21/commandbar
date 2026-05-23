@@ -3,7 +3,7 @@ Contributors:      kunalpareek
 Tags:              keyboard, admin, command-palette, productivity, developer-tools
 Requires at least: 6.3
 Tested up to:      6.8
-Stable tag:        1.0.0
+Stable tag:        1.0.2
 Requires PHP:      8.0
 License:           GPLv2 or later
 License URI:       https://www.gnu.org/licenses/gpl-2.0.html
@@ -120,7 +120,7 @@ add_filter( 'commandbar_commands', function( $commands ) {
 } );
 `
 
-See `docs/extending.md` for full documentation.
+See the Settings → CommandBar page for built-in options, or use the `commandbar_commands` filter to add fully custom commands with any navigation URL or action.
 
 == Installation ==
 
@@ -160,7 +160,7 @@ Yes. CommandBar reads WordPress admin colour scheme variables and adapts automat
 
 = Can I add custom commands? =
 
-Yes. Use the `commandbar_commands` filter to add, remove, or modify commands. Each command is a PHP array following the documented schema. See `docs/extending.md` for full documentation with code examples.
+Yes. Use the `commandbar_commands` filter to add, remove, or modify commands. Each command is a PHP array following the documented schema. Use the `commandbar_commands` filter in your theme's `functions.php` or a custom plugin.
 
 = Is it accessible? =
 
@@ -197,6 +197,16 @@ Settings are preserved on deactivation. They are only removed when you delete (u
 
 == Changelog ==
 
+= 1.0.2 =
+* Fix: Floating trigger button now correctly shows WordPress blue background (moved --cb-accent CSS variable to :root scope)
+* Fix: Palette theme (Dark/Light) now correctly applies to the floating trigger button on page load
+* Bump: Version number updated for asset cache busting
+
+= 1.0.1 =
+* Fix: Dark palette theme now applies to floating trigger button (dark background + white text)
+* Fix: Light palette theme button uses accent background with white text
+* Fix: _applyPaletteTheme() now runs on initial page load, not only when palette opens
+
 = 1.0.0 =
 * Initial release
 * Command palette with CMD+K / CTRL+K shortcut
@@ -219,6 +229,9 @@ Settings are preserved on deactivation. They are only removed when you delete (u
 * REST API results cached 60 seconds per user
 
 == Upgrade Notice ==
+
+= 1.0.2 =
+Bug fix: floating trigger button now displays correct background colour in all themes. Recommended update for all users.
 
 = 1.0.0 =
 Initial release.
