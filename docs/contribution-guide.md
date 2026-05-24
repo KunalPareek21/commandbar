@@ -550,7 +550,7 @@ Use this checklist before every release and before merging any significant PR.
 ### Compatibility
 
 - [ ] WordPress 6.3 (minimum version)
-- [ ] WordPress 6.8 (tested up to)
+- [ ] WordPress 7.0 (tested up to)
 - [ ] PHP 8.0
 - [ ] PHP 8.3
 - [ ] Chrome latest

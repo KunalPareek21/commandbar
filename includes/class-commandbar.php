@@ -63,20 +63,8 @@ final class CommandBar {
 		$this->settings = new CommandBar_Settings();
 		$this->commands = new CommandBar_Commands();
 
-		$this->set_locale();
 		$this->define_admin_hooks();
 		$this->define_rest_hooks();
-	}
-
-	/**
-	 * Define the locale for this plugin for internationalisation.
-	 *
-	 * @since  1.0.0
-	 * @access private
-	 */
-	private function set_locale(): void {
-		$plugin_i18n = new CommandBar_i18n();
-		$this->loader->add_action( 'plugins_loaded', $plugin_i18n, 'load_plugin_textdomain' );
 	}
 
 	/**

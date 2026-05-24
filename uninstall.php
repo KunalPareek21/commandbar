@@ -39,9 +39,9 @@ $wpdb->query(
 
 // On multisite, clean up options from all sub-sites.
 if ( is_multisite() ) {
-	$site_ids = get_sites( array( 'fields' => 'ids', 'number' => 0 ) );
-	foreach ( $site_ids as $site_id ) {
-		switch_to_blog( $site_id );
+	$commandbar_site_ids = get_sites( array( 'fields' => 'ids', 'number' => 0 ) );
+	foreach ( $commandbar_site_ids as $commandbar_site_id ) {
+		switch_to_blog( $commandbar_site_id );
 		delete_option( 'commandbar_settings' );
 		delete_option( 'commandbar_version' );
 		restore_current_blog();

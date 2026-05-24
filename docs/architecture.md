@@ -34,7 +34,7 @@ commandbar/
 ├── includes/
 │   ├── class-commandbar.php            # Core plugin class, constants, bootstrap
 │   ├── class-commandbar-loader.php     # Hook registration registry
-│   ├── class-commandbar-i18n.php       # Text domain loader
+│   ├── class-commandbar-i18n.php       # Internationalization helpers
 │   ├── class-commandbar-activator.php  # Activation hook logic
 │   ├── class-commandbar-deactivator.php # Deactivation hook logic
 │   ├── class-commandbar-admin.php      # Asset enqueue + settings page render
@@ -73,7 +73,6 @@ The orchestrator. Instantiates every other class and wires them together via the
 
 **Responsibilities:**
 - Instantiate `CommandBar_Loader`
-- Instantiate `CommandBar_I18n` and add its hooks
 - Instantiate `CommandBar_Admin` and add its hooks
 - Instantiate `CommandBar_REST_API` and add its hooks
 - Call `$this->loader->run()`
@@ -92,7 +91,7 @@ A hook registry. Inspired by the WordPress Plugin Boilerplate pattern. All `add_
 
 ### `class-commandbar-i18n.php`
 
-Loads the plugin text domain on the `plugins_loaded` hook. The text domain is `commandbar`, matching the `Text Domain` header in `commandbar.php`. All translatable strings in PHP use `__( 'string', 'commandbar' )` or `esc_html__( 'string', 'commandbar' )`.
+Reserved for internationalization-related helpers. WordPress 4.6+ automatically loads translations for WordPress.org plugins when the plugin slug and text domain match. The text domain is `commandbar`, matching the `Text Domain` header in `commandbar.php`. All translatable strings in PHP use `__( 'string', 'commandbar' )` or `esc_html__( 'string', 'commandbar' )`.
 
 ### `class-commandbar-activator.php`
 

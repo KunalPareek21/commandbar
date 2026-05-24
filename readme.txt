@@ -2,7 +2,7 @@
 Contributors:      kunalpareek
 Tags:              keyboard, admin, command-palette, productivity, developer-tools
 Requires at least: 6.3
-Tested up to:      6.8
+Tested up to:      7.0
 Stable tag:        1.0.2
 Requires PHP:      8.0
 License:           GPLv2 or later
