@@ -1,14 +1,14 @@
-# CommandBar
+# CommandBar – Smart Admin Navigation
 
 Your WordPress admin. At the speed of thought.
 
-CommandBar is a lightweight, keyboard-first command palette for the WordPress admin area. Press `CMD + K` on macOS or `CTRL + K` on Windows/Linux from anywhere inside `wp-admin` to instantly search posts, pages, users, plugins, settings, and execute actions without leaving the keyboard.
+CommandBar – Smart Admin Navigation is a lightweight, keyboard-first command palette for the WordPress admin area. Press `CMD + K` on macOS or `CTRL + K` on Windows/Linux from anywhere inside `wp-admin` to instantly search posts, pages, users, plugins, settings, and execute actions without leaving the keyboard.
 
-Inspired by modern developer tooling and command palettes, CommandBar brings fast navigation and workflow acceleration to WordPress while remaining fully native to the WordPress ecosystem.
+Inspired by modern developer tooling and command palettes, CommandBar – Smart Admin Navigation brings fast navigation and workflow acceleration to WordPress while remaining fully native to the WordPress ecosystem.
 
 ---
 
-# Why CommandBar Exists
+# Why CommandBar – Smart Admin Navigation Exists
 
 Large WordPress admin workflows often involve:
 - deeply nested menus
@@ -17,7 +17,7 @@ Large WordPress admin workflows often involve:
 - fragmented interfaces
 - slow context switching
 
-CommandBar was built to reduce interaction cost inside `wp-admin` by introducing a fast, keyboard-first workflow while still respecting:
+CommandBar – Smart Admin Navigation was built to reduce interaction cost inside `wp-admin` by introducing a fast, keyboard-first workflow while still respecting:
 - WordPress admin conventions
 - accessibility standards
 - extensibility patterns
@@ -107,9 +107,9 @@ Plugins → Installed Plugins
 
 ---
 
-# Extending CommandBar
+# Extending CommandBar – Smart Admin Navigation
 
-CommandBar is intentionally designed to be extensible using native WordPress hooks.
+CommandBar – Smart Admin Navigation is intentionally designed to be extensible using native WordPress hooks.
 
 Third-party plugins and themes can register custom commands using the `commandbar_commands` filter.
 
@@ -151,7 +151,7 @@ for complete developer documentation.
 
 ## Vanilla JavaScript Over Frameworks
 
-CommandBar intentionally uses lightweight vanilla JavaScript instead of large frontend frameworks in order to:
+CommandBar – Smart Admin Navigation intentionally uses lightweight vanilla JavaScript instead of large frontend frameworks in order to:
 - reduce admin overhead
 - simplify maintenance
 - minimize dependencies
@@ -240,7 +240,7 @@ docs/architecture.md
 
 # Accessibility
 
-CommandBar is designed with accessibility as a first-class engineering requirement.
+CommandBar – Smart Admin Navigation is designed with accessibility as a first-class engineering requirement.
 
 Supported accessibility features include:
 - WCAG 2.1 AA compliance
@@ -324,7 +324,7 @@ Including:
 
 # Development Philosophy
 
-CommandBar is built around a few core principles:
+CommandBar – Smart Admin Navigation is built around a few core principles:
 
 - reduce admin friction
 - prioritize keyboard workflows

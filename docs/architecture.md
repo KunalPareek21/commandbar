@@ -1,6 +1,6 @@
-# CommandBar — Architecture
+# CommandBar – Smart Admin Navigation — Architecture
 
-This document explains the technical architecture of CommandBar: why it is built the way it is, what every file does, and the principles behind each major decision.
+This document explains the technical architecture of CommandBar – Smart Admin Navigation: why it is built the way it is, what every file does, and the principles behind each major decision.
 
 ---
 
@@ -101,7 +101,7 @@ Called once when the plugin is activated via `register_activation_hook()`. Respo
 - Store `commandbar_version` in `wp_options`
 - Flush rewrite rules to register any new endpoints
 
-**Important:** This class does NOT create database tables. CommandBar uses no custom database tables.
+**Important:** This class does NOT create database tables. CommandBar – Smart Admin Navigation uses no custom database tables.
 
 ### `class-commandbar-deactivator.php`
 
@@ -376,7 +376,7 @@ This was a deliberate decision, not a constraint.
 
 4. **Longevity.** Vanilla JavaScript written to the ES6+ standard will run without modification in any browser for the next 20 years. Framework-dependent code requires ongoing migration.
 
-5. **Appropriate complexity.** CommandBar's UI is a single modal with a list of results. This does not require a virtual DOM, a component tree, or a state management system.
+5. **Appropriate complexity.** CommandBar – Smart Admin Navigation's UI is a single modal with a list of results. This does not require a virtual DOM, a component tree, or a state management system.
 
 6. **Teachability.** Any WordPress developer can read, understand, and modify the JavaScript without knowing React, Vue, or any framework.
 
@@ -386,7 +386,7 @@ This was a deliberate decision, not a constraint.
 
 See [performance.md](performance.md) for detailed numbers. Architecture-level decisions:
 
-**No frontend assets.** `wp_enqueue_scripts` is never called. CSS and JS are loaded only via `admin_enqueue_scripts`, scoped to `wp-admin`. Site visitors never load any CommandBar assets.
+**No frontend assets.** `wp_enqueue_scripts` is never called. CSS and JS are loaded only via `admin_enqueue_scripts`, scoped to `wp-admin`. Site visitors never load any CommandBar – Smart Admin Navigation assets.
 
 **Static commands need no network.** The most common operations (New Post, Settings, Users) are defined entirely in `commandbar-data.js` and served inline with the page. The palette is usable before any network request.
 
@@ -428,7 +428,7 @@ This prevents direct file access and the information disclosure that can result 
 
 ## Hooks and Filters Architecture
 
-CommandBar exposes a developer API via WordPress filters. See [extending.md](extending.md) for full documentation.
+CommandBar – Smart Admin Navigation exposes a developer API via WordPress filters. See [extending.md](extending.md) for full documentation.
 
 | Hook | Type | Description |
 |---|---|---|
@@ -487,5 +487,5 @@ User executes action (e.g., Flush Rewrite Rules)
 ---
 
 *For setup instructions, see [setup.md](setup.md).*
-*For extending CommandBar, see [extending.md](extending.md).*
+*For extending CommandBar – Smart Admin Navigation, see [extending.md](extending.md).*
 *For accessibility implementation, see [accessibility.md](accessibility.md).*

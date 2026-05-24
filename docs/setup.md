@@ -1,8 +1,8 @@
-# CommandBar — Setup & Installation Guide
+# CommandBar – Smart Admin Navigation — Setup & Installation Guide
 
 > **Your WordPress admin. At the speed of thought.**
 
-CommandBar is a zero-configuration keyboard-first command palette for the WordPress admin. This guide covers every way to install it and get running in under two minutes.
+CommandBar – Smart Admin Navigation is a zero-configuration keyboard-first command palette for the WordPress admin. This guide covers every way to install it and get running in under two minutes.
 
 ---
 
@@ -27,7 +27,7 @@ CommandBar is a zero-configuration keyboard-first command palette for the WordPr
 | PHP | 8.0 |
 | Browser | Chrome 90+, Firefox 90+, Safari 15+, Edge 90+ |
 
-CommandBar has **zero runtime dependencies**. No external services, no CDN, no npm packages — just plain vanilla JavaScript and WordPress APIs.
+CommandBar – Smart Admin Navigation has **zero runtime dependencies**. No external services, no CDN, no npm packages — just plain vanilla JavaScript and WordPress APIs.
 
 ---
 
@@ -39,7 +39,7 @@ This is the recommended installation method for most users.
 
 1. Log in to your WordPress admin dashboard.
 2. Navigate to **Plugins → Add New Plugin**.
-3. In the search box, type `CommandBar`.
+3. In the search box, type `CommandBar – Smart Admin Navigation`.
 4. Find the plugin by **Kunal Pareek** and click **Install Now**.
 5. Once installed, click **Activate**.
 6. Press **CMD+K** (Mac) or **CTRL+K** (Windows/Linux) anywhere in wp-admin.
@@ -73,7 +73,7 @@ Use this method when installing on a server without internet access, or when ins
 1. Download and extract the plugin ZIP.
 2. Upload the extracted `commandbar/` folder to `/wp-content/plugins/` on your server.
 3. Log in to WordPress admin and navigate to **Plugins**.
-4. Find **CommandBar** in the list and click **Activate**.
+4. Find **CommandBar – Smart Admin Navigation** in the list and click **Activate**.
 
 ### Via WP-CLI (from ZIP)
 
@@ -113,7 +113,7 @@ Try typing:
 
 ### Step 4: Use Dynamic Search
 
-CommandBar also searches your actual content via the REST API:
+CommandBar – Smart Admin Navigation also searches your actual content via the REST API:
 
 - Type any word → searches posts and pages by title
 - Type `@username` → searches users (requires `list_users` capability)
@@ -210,16 +210,16 @@ Settings are located at **Settings → CommandBar**.
 
 ## Multisite Setup
 
-CommandBar works on WordPress Multisite without any special configuration.
+CommandBar – Smart Admin Navigation works on WordPress Multisite without any special configuration.
 
 - On a **network-activated** installation, the plugin is active on all sites in the network.
 - Each site has its own settings under **Settings → CommandBar**.
-- REST API searches are scoped to the current site — CommandBar does not search across the network.
-- Network admins see CommandBar in the **Network Admin** dashboard as well.
+- REST API searches are scoped to the current site — CommandBar – Smart Admin Navigation does not search across the network.
+- Network admins see CommandBar – Smart Admin Navigation in the **Network Admin** dashboard as well.
 
 To network-activate:
 1. Navigate to **Network Admin → Plugins**.
-2. Find **CommandBar** and click **Network Activate**.
+2. Find **CommandBar – Smart Admin Navigation** and click **Network Activate**.
 
 ---
 
@@ -232,12 +232,12 @@ Deactivating the plugin via **Plugins → Deactivate** preserves all settings. R
 ### Full Uninstall (removes all data)
 
 1. Navigate to **Plugins**.
-2. Deactivate CommandBar.
+2. Deactivate CommandBar – Smart Admin Navigation.
 3. Click **Delete**.
 
 WordPress will run `uninstall.php`, which:
 - Deletes all `commandbar_*` options from `wp_options`
-- Removes any CommandBar transients from the database
+- Removes any CommandBar – Smart Admin Navigation transients from the database
 
 **Note:** `localStorage` data (recent commands, dark mode preference) is stored in the browser and cannot be cleared server-side. It will be cleaned up automatically when the user's browser storage is cleared or when the browser's localStorage for that domain expires.
 
@@ -249,7 +249,7 @@ WordPress will run `uninstall.php`, which:
 
 - Make sure the plugin is **activated**.
 - Ensure your user role has access (check **Settings → CommandBar → Advanced → Enable for these roles**).
-- Check whether another plugin is capturing `CMD+K` / `CTRL+K` before CommandBar can.
+- Check whether another plugin is capturing `CMD+K` / `CTRL+K` before CommandBar – Smart Admin Navigation can.
 - Try opening from the floating trigger button to confirm the plugin is working.
 
 ### Search results are not appearing
@@ -265,7 +265,7 @@ WordPress will run `uninstall.php`, which:
 
 ### Plugin Check or security scanner flags an issue
 
-- CommandBar passes WordPress Plugin Check with zero blocking issues.
+- CommandBar – Smart Admin Navigation passes WordPress Plugin Check with zero blocking issues.
 - If a security scanner flags a false positive, refer to [docs/wordpress-org-submission.md](wordpress-org-submission.md) for details.
 
 ---

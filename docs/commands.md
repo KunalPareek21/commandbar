@@ -1,6 +1,6 @@
-# CommandBar — Complete Command Reference
+# CommandBar – Smart Admin Navigation — Complete Command Reference
 
-This document lists every built-in command in CommandBar, the search keywords that trigger each one, the WordPress capability required, and any keyboard shortcut or special behaviour.
+This document lists every built-in command in CommandBar – Smart Admin Navigation, the search keywords that trigger each one, the WordPress capability required, and any keyboard shortcut or special behaviour.
 
 ---
 
@@ -22,7 +22,7 @@ This document lists every built-in command in CommandBar, the search keywords th
 
 ## How Commands Work
 
-When you open CommandBar and type, two things happen simultaneously:
+When you open CommandBar – Smart Admin Navigation and type, two things happen simultaneously:
 
 1. **Static fuzzy match** — Every built-in command is scored against your query using a weighted keyword matching algorithm. No network request required.
 2. **Dynamic REST search** — After a 200ms debounce, a REST API request fetches live results for posts, pages, users, or plugins depending on your query prefix.
@@ -629,5 +629,5 @@ add_filter( 'commandbar_commands', function( $commands ) {
 
 ---
 
-*For extending CommandBar with custom commands, see [extending.md](extending.md).*
+*For extending CommandBar – Smart Admin Navigation with custom commands, see [extending.md](extending.md).*
 *For architecture details, see [architecture.md](architecture.md).*

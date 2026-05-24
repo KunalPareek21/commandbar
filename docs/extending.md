@@ -1,6 +1,6 @@
-# CommandBar — Developer Extension Guide
+# CommandBar – Smart Admin Navigation — Developer Extension Guide
 
-CommandBar is designed to be extended. The plugin exposes a clean PHP filter API that lets you add custom commands, register custom server-side actions, and modify search results — all without touching plugin core.
+CommandBar – Smart Admin Navigation is designed to be extended. The plugin exposes a clean PHP filter API that lets you add custom commands, register custom server-side actions, and modify search results — all without touching plugin core.
 
 ---
 
@@ -23,8 +23,8 @@ CommandBar is designed to be extended. The plugin exposes a clean PHP filter API
 
 ## Philosophy
 
-CommandBar extensions should:
-- Add commands that feel native to CommandBar — same style, same quality
+CommandBar – Smart Admin Navigation extensions should:
+- Add commands that feel native to CommandBar – Smart Admin Navigation — same style, same quality
 - Use standard WordPress hooks — no special SDK required
 - Never bypass capability checks
 - Keep commands scoped to what the current user can actually do
@@ -33,7 +33,7 @@ CommandBar extensions should:
 
 ## The `commandbar_commands` Filter
 
-This is the primary extension point. It fires after CommandBar builds its default command list and before that list is sent to the browser via `wp_localize_script`.
+This is the primary extension point. It fires after CommandBar – Smart Admin Navigation builds its default command list and before that list is sent to the browser via `wp_localize_script`.
 
 **Hook:** `commandbar_commands`
 **Type:** filter
@@ -64,7 +64,7 @@ function my_plugin_add_commands( array $commands ): array {
 
 **Important:** This filter runs inside `admin_enqueue_scripts`, which only fires in wp-admin. You do not need to scope it yourself.
 
-**Capability filtering:** CommandBar automatically removes any command whose `capability` value the current user does not have, before sending the list to JavaScript. Always set a capability — never set it to `null` unless any authenticated user should see the command.
+**Capability filtering:** CommandBar – Smart Admin Navigation automatically removes any command whose `capability` value the current user does not have, before sending the list to JavaScript. Always set a capability — never set it to `null` unless any authenticated user should see the command.
 
 ---
 
@@ -102,7 +102,7 @@ Every command must be an associative array with the following keys:
 - Related terms users might think of
 - Partial phrases
 
-**`icon`** — Must be a [WordPress Dashicon](https://developer.wordpress.org/resource/dashicons/) name. Do not include the `dashicons-` prefix — CommandBar adds it. If you pass an invalid name, the icon space will be empty but the command will still work.
+**`icon`** — Must be a [WordPress Dashicon](https://developer.wordpress.org/resource/dashicons/) name. Do not include the `dashicons-` prefix — CommandBar – Smart Admin Navigation adds it. If you pass an invalid name, the icon space will be empty but the command will still work.
 
 **`category`** — Use your plugin name or a logical grouping. Avoid generic names like "Other" or "Misc". Category names appear as group headers in the results list.
 
@@ -112,7 +112,7 @@ Every command must be an associative array with the following keys:
 
 ## Action Types
 
-The `action` array defines what happens when a user selects the command. CommandBar supports five action types.
+The `action` array defines what happens when a user selects the command. CommandBar – Smart Admin Navigation supports five action types.
 
 ### `navigate` — Navigate to a URL
 
@@ -223,7 +223,7 @@ function acme_plugin_register_commands( array $commands ): array {
 }
 ```
 
-**Tip:** You can check capabilities in your filter callback with `current_user_can()` before adding commands, as shown above. CommandBar also checks capabilities server-side, so this is optional but slightly more efficient.
+**Tip:** You can check capabilities in your filter callback with `current_user_can()` before adding commands, as shown above. CommandBar – Smart Admin Navigation also checks capabilities server-side, so this is optional but slightly more efficient.
 
 ---
 
@@ -313,11 +313,11 @@ The callback receives no parameters. It is only called after capability verifica
 
 ## Adding Custom Search Sources
 
-For plugins with large datasets (WooCommerce products, custom post types, CRM contacts, etc.), you can add dynamic search sources that plug into CommandBar's REST API search.
+For plugins with large datasets (WooCommerce products, custom post types, CRM contacts, etc.), you can add dynamic search sources that plug into CommandBar – Smart Admin Navigation's REST API search.
 
 ### Using the `commandbar_search_results` filter
 
-This filter fires after CommandBar's built-in search results are assembled, before they are returned from the REST endpoint.
+This filter fires after CommandBar – Smart Admin Navigation's built-in search results are assembled, before they are returned from the REST endpoint.
 
 ```php
 add_filter( 'commandbar_search_results', 'acme_add_search_results', 10, 2 );
@@ -401,13 +401,13 @@ The callback must return an array with:
 
 ## Controlling Visibility Per User
 
-Use the `commandbar_enabled_for_user` filter to override whether CommandBar is enabled for a specific user — useful for testing, role-specific rollouts, or maintenance modes.
+Use the `commandbar_enabled_for_user` filter to override whether CommandBar – Smart Admin Navigation is enabled for a specific user — useful for testing, role-specific rollouts, or maintenance modes.
 
 ```php
 add_filter( 'commandbar_enabled_for_user', 'my_plugin_commandbar_visibility', 10, 2 );
 
 /**
- * @param bool    $enabled     Whether CommandBar is currently enabled.
+ * @param bool    $enabled     Whether CommandBar – Smart Admin Navigation is currently enabled.
  * @param WP_User $current_user The current user object.
  * @return bool
  */
@@ -424,13 +424,13 @@ function my_plugin_commandbar_visibility( bool $enabled, WP_User $current_user )
 
 ## Complete Working Example
 
-A complete example plugin that adds CommandBar support for a fictional "Acme Invoices" plugin:
+A complete example plugin that adds CommandBar – Smart Admin Navigation support for a fictional "Acme Invoices" plugin:
 
 ```php
 <?php
 /**
  * Plugin Name: Acme Invoices — CommandBar Integration
- * Description: Adds Acme Invoices commands to CommandBar.
+ * Description: Adds Acme Invoices commands to CommandBar – Smart Admin Navigation.
  * Version: 1.0.0
  * Requires Plugins: commandbar
  */
@@ -438,8 +438,8 @@ A complete example plugin that adds CommandBar support for a fictional "Acme Inv
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 /**
- * Register commands with CommandBar.
- * Hooks into commandbar_commands after CommandBar initialises.
+ * Register commands with CommandBar – Smart Admin Navigation.
+ * Hooks into commandbar_commands after CommandBar – Smart Admin Navigation initialises.
  */
 add_filter( 'commandbar_commands', 'acme_commandbar_register_commands' );
 
@@ -521,11 +521,11 @@ function acme_execute_clear_invoice_cache(): array {
 
 ## Best Practices
 
-**Use a plugin-specific prefix on all IDs.** `'id' => 'myplugin-command-name'` prevents collisions with CommandBar built-ins and other extensions.
+**Use a plugin-specific prefix on all IDs.** `'id' => 'myplugin-command-name'` prevents collisions with CommandBar – Smart Admin Navigation built-ins and other extensions.
 
 **Provide rich keywords.** Users think in different words. Include synonyms, abbreviations, and related concepts. A command with 8 well-chosen keywords is found 4× more reliably than one with 2 keywords.
 
-**Always set a capability.** Never set `capability` to `null` unless truly any authenticated user should see and run the command. Setting a capability ensures CommandBar's server-side filter removes it for users who cannot execute it.
+**Always set a capability.** Never set `capability` to `null` unless truly any authenticated user should see and run the command. Setting a capability ensures CommandBar – Smart Admin Navigation's server-side filter removes it for users who cannot execute it.
 
 **Use `admin_url()` for all URLs.** Never hardcode `/wp-admin/` paths. This ensures compatibility with custom admin URLs and WordPress configurations that change the admin path.
 
@@ -541,4 +541,4 @@ function acme_execute_clear_invoice_cache(): array {
 
 *For the complete command schema, see [commands.md](commands.md).*
 *For architecture details, see [architecture.md](architecture.md).*
-*For contributing to CommandBar core, see [contribution-guide.md](contribution-guide.md).*
+*For contributing to CommandBar – Smart Admin Navigation core, see [contribution-guide.md](contribution-guide.md).*

@@ -1,6 +1,6 @@
-# CommandBar — Accessibility
+# CommandBar – Smart Admin Navigation — Accessibility
 
-CommandBar is built with accessibility as a first principle, not an afterthought. This document covers the full WCAG 2.1 AA compliance implementation, keyboard navigation reference, screen reader behaviour, ARIA architecture, and focus management details.
+CommandBar – Smart Admin Navigation is built with accessibility as a first principle, not an afterthought. This document covers the full WCAG 2.1 AA compliance implementation, keyboard navigation reference, screen reader behaviour, ARIA architecture, and focus management details.
 
 ---
 
@@ -21,11 +21,11 @@ CommandBar is built with accessibility as a first principle, not an afterthought
 
 ## Compliance Target
 
-CommandBar targets **WCAG 2.1 Level AA** compliance across all supported browsers and screen reader / browser combinations.
+CommandBar – Smart Admin Navigation targets **WCAG 2.1 Level AA** compliance across all supported browsers and screen reader / browser combinations.
 
 Applicable success criteria:
 
-| Criterion | Level | How CommandBar addresses it |
+| Criterion | Level | How CommandBar – Smart Admin Navigation addresses it |
 |---|---|---|
 | 1.1.1 Non-text Content | A | All Dashicons have visually hidden text labels; decorative icons have `aria-hidden` |
 | 1.3.1 Info and Relationships | A | Semantic roles (dialog, listbox, option, group) communicate structure |
@@ -272,7 +272,7 @@ The focus move happens synchronously on the same frame as the open animation to 
 
 ### While Open (Focus Trap)
 
-CommandBar implements a focus trap following the [ARIA dialog pattern](https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/).
+CommandBar – Smart Admin Navigation implements a focus trap following the [ARIA dialog pattern](https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/).
 
 **Implementation:**
 
@@ -394,7 +394,7 @@ The search input and floating trigger button have a focus ring that is:
 
 ### `prefers-reduced-motion`
 
-When the user's operating system is set to reduce motion, all CommandBar animations are disabled:
+When the user's operating system is set to reduce motion, all CommandBar – Smart Admin Navigation animations are disabled:
 
 ```css
 @media (prefers-reduced-motion: reduce) {
@@ -425,7 +425,7 @@ Durations are deliberately short. Long animations interfere with keyboard-first 
 
 ## RTL Support
 
-CommandBar is fully compatible with right-to-left languages (Arabic, Hebrew, Persian, etc.).
+CommandBar – Smart Admin Navigation is fully compatible with right-to-left languages (Arabic, Hebrew, Persian, etc.).
 
 **Implementation:**
 
@@ -486,7 +486,7 @@ Before each release, the following accessibility checks are performed manually:
 
 ## Known Limitations
 
-**`aria-modal` browser support:** Some older screen reader / browser combinations do not fully respect `aria-modal="true"`. CommandBar supplements this with explicit `aria-hidden` and `inert` on background content.
+**`aria-modal` browser support:** Some older screen reader / browser combinations do not fully respect `aria-modal="true"`. CommandBar – Smart Admin Navigation supplements this with explicit `aria-hidden` and `inert` on background content.
 
 **Dark Mode toggle:** The dark mode toggle applies a CSS class to `document.body`. It does not interact with the WordPress admin color scheme system. Some screen reader users who rely on OS-level dark mode may find the toggle redundant — their OS dark mode is already detected via `prefers-color-scheme`.
 

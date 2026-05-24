@@ -1,4 +1,4 @@
-=== CommandBar ===
+=== CommandBar – Smart Admin Navigation ===
 Contributors:      kunalpareek
 Tags:              keyboard, admin, command-palette, productivity, developer-tools
 Requires at least: 6.3

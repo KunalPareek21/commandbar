@@ -1,6 +1,6 @@
-# CommandBar — Contribution Guide
+# CommandBar – Smart Admin Navigation — Contribution Guide
 
-Thank you for contributing to CommandBar. This guide covers everything you need to set up a development environment, understand the codebase, and submit a pull request.
+Thank you for contributing to CommandBar – Smart Admin Navigation. This guide covers everything you need to set up a development environment, understand the codebase, and submit a pull request.
 
 ---
 
@@ -57,7 +57,7 @@ Contributors are expected to:
 
 ### Option 2: Varying Vagrants Vagrant (VVV)
 
-1. Add CommandBar to a VVV provisioned site's plugins:
+1. Add CommandBar – Smart Admin Navigation to a VVV provisioned site's plugins:
    ```bash
    cd /srv/www/wordpress-default/public_html/wp-content/plugins/
    git clone https://github.com/KunalPareek21/commandbar.git
@@ -126,7 +126,7 @@ commandbar.php      Plugin bootstrap (header + init)
 
 ### PHP
 
-CommandBar follows [WordPress Coding Standards](https://developer.wordpress.org/coding-standards/wordpress-coding-standards/php/).
+CommandBar – Smart Admin Navigation follows [WordPress Coding Standards](https://developer.wordpress.org/coding-standards/wordpress-coding-standards/php/).
 
 Key rules:
 - Tabs for indentation (not spaces).
@@ -151,7 +151,7 @@ Key rules:
 
 ### JavaScript
 
-CommandBar JavaScript follows these rules:
+CommandBar – Smart Admin Navigation JavaScript follows these rules:
 
 - `'use strict';` at the top of every file.
 - `const` and `let` — never `var`.
@@ -367,7 +367,7 @@ If the setting affects JavaScript behaviour, add it to the `$settings` array in 
 
 ## Commit Message Format
 
-CommandBar uses [Conventional Commits](https://www.conventionalcommits.org/).
+CommandBar – Smart Admin Navigation uses [Conventional Commits](https://www.conventionalcommits.org/).
 
 ### Format
 

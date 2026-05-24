@@ -1,6 +1,6 @@
-# CommandBar — Performance
+# CommandBar – Smart Admin Navigation — Performance
 
-Speed is the entire point of CommandBar. This document covers the zero-frontend-impact guarantee, asset size breakdown, REST API caching strategy, and the performance targets that every release must meet.
+Speed is the entire point of CommandBar – Smart Admin Navigation. This document covers the zero-frontend-impact guarantee, asset size breakdown, REST API caching strategy, and the performance targets that every release must meet.
 
 ---
 
@@ -19,7 +19,7 @@ Speed is the entire point of CommandBar. This document covers the zero-frontend-
 
 ## Zero Frontend Impact Guarantee
 
-**CommandBar adds exactly zero bytes of JavaScript or CSS to the public-facing frontend of your site.**
+**CommandBar – Smart Admin Navigation adds exactly zero bytes of JavaScript or CSS to the public-facing frontend of your site.**
 
 This is enforced at the code level, not just a guideline.
 
@@ -51,13 +51,13 @@ add_action( 'admin_enqueue_scripts', [ $this, 'enqueue_scripts' ] );
 
 ### Verification
 
-To independently verify this, activate CommandBar, log out of WordPress, and load the homepage. Inspect the page source. You will find no reference to `commandbar` in any `<script>` or `<link>` tag.
+To independently verify this, activate CommandBar – Smart Admin Navigation, log out of WordPress, and load the homepage. Inspect the page source. You will find no reference to `commandbar` in any `<script>` or `<link>` tag.
 
 ---
 
 ## Admin Asset Footprint
 
-These are the assets loaded for admin users who have CommandBar enabled:
+These are the assets loaded for admin users who have CommandBar – Smart Admin Navigation enabled:
 
 | File | Unminified size | Gzipped |
 |---|---|---|
@@ -76,11 +76,11 @@ These are the assets loaded for admin users who have CommandBar enabled:
 For comparison:
 - WordPress itself loads ~500 KB of JavaScript on a typical admin page
 - The jQuery library alone is ~87 KB unminified
-- CommandBar adds less than 4% to a typical wp-admin page's JavaScript footprint
+- CommandBar – Smart Admin Navigation adds less than 4% to a typical wp-admin page's JavaScript footprint
 
 ### Why no minification in core?
 
-CommandBar ships unminified source files as the canonical assets. This is intentional:
+CommandBar – Smart Admin Navigation ships unminified source files as the canonical assets. This is intentional:
 
 1. WordPress.org SVN does not recommend including build tooling in plugin submissions.
 2. Developers should be able to read and understand the code without decompiling.
@@ -115,7 +115,7 @@ Total inline payload: approximately **1 KB**. Not significant.
 
 **CSS animation.** The palette uses a CSS animation (opacity + transform) rather than a JavaScript animation. CSS animations run on the compositor thread and are not blocked by JavaScript execution.
 
-**No jQuery.** CommandBar uses vanilla ES6 `document.addEventListener`, `classList.add/remove`, and `element.focus()`. No jQuery wrapper overhead.
+**No jQuery.** CommandBar – Smart Admin Navigation uses vanilla ES6 `document.addEventListener`, `classList.add/remove`, and `element.focus()`. No jQuery wrapper overhead.
 
 ### Measured performance (baseline)
 
@@ -236,7 +236,7 @@ The palette DOM, hidden, consumes approximately 50-100KB of browser memory — u
 
 ### Event listeners
 
-CommandBar registers exactly **two** global event listeners:
+CommandBar – Smart Admin Navigation registers exactly **two** global event listeners:
 1. `document.addEventListener('keydown', ...)` — for the CMD+K / CTRL+K shortcut
 2. `document.addEventListener('click', ...)` — for click-outside-to-close
 
@@ -303,11 +303,11 @@ The gap between these two points is your palette open latency.
 
 ### Lighthouse
 
-Lighthouse on wp-admin pages will not reflect CommandBar's performance impact because Lighthouse runs as an unauthenticated user and CommandBar loads no assets for unauthenticated users. This is the correct result — it confirms zero frontend impact.
+Lighthouse on wp-admin pages will not reflect CommandBar – Smart Admin Navigation's performance impact because Lighthouse runs as an unauthenticated user and CommandBar – Smart Admin Navigation loads no assets for unauthenticated users. This is the correct result — it confirms zero frontend impact.
 
 ### WP Query Monitor
 
-If you have [Query Monitor](https://wordpress.org/plugins/query-monitor/) installed, CommandBar REST API requests appear under **Queries** when the REST endpoint is called. You can use this to measure the server-side query time for search results.
+If you have [Query Monitor](https://wordpress.org/plugins/query-monitor/) installed, CommandBar – Smart Admin Navigation REST API requests appear under **Queries** when the REST endpoint is called. You can use this to measure the server-side query time for search results.
 
 Typical query times observed:
 - Post search (WP_Query): 2-8ms

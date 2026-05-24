@@ -1,6 +1,6 @@
-# CommandBar — WordPress.org Submission Guide
+# CommandBar – Smart Admin Navigation — WordPress.org Submission Guide
 
-This document covers everything needed to submit CommandBar to the WordPress.org plugin repository: Plugin Check results, GPL compliance, the submission checklist, and notes for the Plugin Review Team.
+This document covers everything needed to submit CommandBar – Smart Admin Navigation to the WordPress.org plugin repository: Plugin Check results, GPL compliance, the submission checklist, and notes for the Plugin Review Team.
 
 ---
 
@@ -11,7 +11,7 @@ This document covers everything needed to submit CommandBar to the WordPress.org
 - [Submission Checklist](#submission-checklist)
 - [SVN Deployment](#svn-deployment)
 - [Plugin Review Team Notes](#plugin-review-team-notes)
-- [Common Rejection Reasons and How CommandBar Avoids Them](#common-rejection-reasons-and-how-commandbar-avoids-them)
+- [Common Rejection Reasons and How CommandBar – Smart Admin Navigation Avoids Them](#common-rejection-reasons-and-how-commandbar--smart-admin-navigation-avoids-them)
 - [Post-Approval Maintenance](#post-approval-maintenance)
 
 ---
@@ -30,12 +30,12 @@ wp plugin check commandbar
 **Via the admin screen:**
 1. Install and activate the Plugin Check plugin.
 2. Go to **Tools → Plugin Check**.
-3. Select **CommandBar** from the dropdown.
+3. Select **CommandBar – Smart Admin Navigation** from the dropdown.
 4. Click **Check it!**.
 
 ### Expected results
 
-CommandBar is engineered to pass Plugin Check with **zero blocking issues** and **zero errors**.
+CommandBar – Smart Admin Navigation is engineered to pass Plugin Check with **zero blocking issues** and **zero errors**.
 
 | Check category | Expected result |
 |---|---|
@@ -65,10 +65,10 @@ CommandBar is engineered to pass Plugin Check with **zero blocking issues** and 
 
 Plugin Check sometimes reports **informational warnings** that are not blocking. These are expected and acceptable:
 
-- **"Consider using wp_safe_redirect() instead of wp_redirect()"** — Not applicable to CommandBar; no redirects used.
+- **"Consider using wp_safe_redirect() instead of wp_redirect()"** — Not applicable to CommandBar – Smart Admin Navigation; no redirects used.
 - **"Translation functions should not have dynamic strings"** — Not applicable; all strings are static literals.
 
-If a new version of Plugin Check introduces a new check that CommandBar does not yet pass, file an issue immediately and address it before the next release.
+If a new version of Plugin Check introduces a new check that CommandBar – Smart Admin Navigation does not yet pass, file an issue immediately and address it before the next release.
 
 ---
 
@@ -76,7 +76,7 @@ If a new version of Plugin Check introduces a new check that CommandBar does not
 
 ### Plugin license
 
-CommandBar is licensed under the [GNU General Public License v2.0 or later](https://www.gnu.org/licenses/gpl-2.0.html).
+CommandBar – Smart Admin Navigation is licensed under the [GNU General Public License v2.0 or later](https://www.gnu.org/licenses/gpl-2.0.html).
 
 The license is declared in:
 - The plugin header: `License: GPL v2 or later` and `License URI: https://www.gnu.org/licenses/gpl-2.0.html`
@@ -85,7 +85,7 @@ The license is declared in:
 
 ### Dependency licenses
 
-CommandBar has **zero runtime dependencies**. This is intentional and simplifies GPL compliance entirely:
+CommandBar – Smart Admin Navigation has **zero runtime dependencies**. This is intentional and simplifies GPL compliance entirely:
 
 | Component | Source | License |
 |---|---|---|
@@ -265,8 +265,8 @@ Screenshots in `readme.txt` reference these files:
 ```
 == Screenshots ==
 
-1. The CommandBar palette open with a search query for "post".
-2. The CommandBar settings page at Settings → CommandBar.
+1. The CommandBar – Smart Admin Navigation palette open with a search query for "post".
+2. The CommandBar – Smart Admin Navigation settings page at Settings → CommandBar.
 ```
 
 The number in `readme.txt` corresponds to `screenshot-{n}.png` in the `assets/` directory.
@@ -279,7 +279,7 @@ This section contains notes specifically for members of the WordPress.org Plugin
 
 ### About this plugin
 
-CommandBar is a keyboard-first command palette for the WordPress admin. It adds no frontend assets, requires no configuration, and has no external dependencies.
+CommandBar – Smart Admin Navigation is a keyboard-first command palette for the WordPress admin. It adds no frontend assets, requires no configuration, and has no external dependencies.
 
 ### Security model
 
@@ -326,9 +326,9 @@ No personally identifiable information is stored anywhere. Recent commands are s
 
 ---
 
-## Common Rejection Reasons and How CommandBar Avoids Them
+## Common Rejection Reasons and How CommandBar – Smart Admin Navigation Avoids Them
 
-The Plugin Review Team publishes common reasons for plugin rejection. Here is how CommandBar addresses each one.
+The Plugin Review Team publishes common reasons for plugin rejection. Here is how CommandBar – Smart Admin Navigation addresses each one.
 
 ### "Plugin is using a generic function/class/define/namespace/option name"
 
@@ -336,7 +336,7 @@ All functions, classes, constants, and options use the `commandbar_` / `CommandB
 
 ### "Plugin is not compatible with the WordPress.org directory guidelines"
 
-CommandBar follows all directory guidelines:
+CommandBar – Smart Admin Navigation follows all directory guidelines:
 - No upsells or freemium features
 - No tracking or analytics
 - No external service calls
@@ -349,7 +349,7 @@ No deprecated WordPress functions are used. All PHP is 8.0+ compatible. The plug
 
 ### "Plugin is making external HTTP requests"
 
-CommandBar makes **zero** external HTTP requests. All data comes from the local WordPress installation.
+CommandBar – Smart Admin Navigation makes **zero** external HTTP requests. All data comes from the local WordPress installation.
 
 ### "Plugin is not properly sanitizing/escaping"
 
@@ -382,7 +382,7 @@ After the plugin is approved and live on WordPress.org:
 ### Keeping "Tested up to" current
 
 When a new WordPress version releases:
-1. Test CommandBar against the new version in a local environment.
+1. Test CommandBar – Smart Admin Navigation against the new version in a local environment.
 2. If all tests pass, update `Tested up to` in both `readme.txt` and the plugin header.
 3. Commit to SVN `trunk` (no version bump needed for `Tested up to` updates).
 

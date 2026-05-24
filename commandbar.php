@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: CommandBar
+ * Plugin Name: CommandBar – Smart Admin Navigation
  * Plugin URI:  https://kunalpareek.in/commandbar
  * Description: A lightweight keyboard-first command palette for WordPress admin. Press CMD+K or CTRL+K anywhere in wp-admin to instantly search posts, pages, users, settings, and run actions without touching the mouse.
  * Version:     1.0.2
