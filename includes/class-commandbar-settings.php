@@ -57,65 +57,65 @@ class CommandBar_Settings {
 		// ── General Section ─────────────────────────────────────────────────
 		add_settings_section(
 			'commandbar_general',
-			__( 'General', 'commandbar-smart-admin-navigation' ),
+			__( 'General', 'commandbar' ),
 			'__return_false',
 			'commandbar'
 		);
 
 		add_settings_field(
 			'enabled',
-			__( 'Enable CommandBar', 'commandbar-smart-admin-navigation' ),
+			__( 'Enable CommandBar', 'commandbar' ),
 			array( $this, 'field_checkbox' ),
 			'commandbar',
 			'commandbar_general',
 			array(
 				'key'         => 'enabled',
-				'description' => __( 'Activate the command palette across all wp-admin pages.', 'commandbar-smart-admin-navigation' ),
+				'description' => __( 'Activate the command palette across all wp-admin pages.', 'commandbar' ),
 			)
 		);
 
 		add_settings_field(
 			'show_trigger_button',
-			__( 'Show floating trigger button', 'commandbar-smart-admin-navigation' ),
+			__( 'Show floating trigger button', 'commandbar' ),
 			array( $this, 'field_checkbox' ),
 			'commandbar',
 			'commandbar_general',
 			array(
 				'key'         => 'show_trigger_button',
-				'description' => __( 'Display a floating button in the corner of wp-admin as an alternative way to open the command palette.', 'commandbar-smart-admin-navigation' ),
+				'description' => __( 'Display a floating button in the corner of wp-admin as an alternative way to open the command palette.', 'commandbar' ),
 			)
 		);
 
 		add_settings_field(
 			'trigger_button_position',
-			__( 'Floating button position', 'commandbar-smart-admin-navigation' ),
+			__( 'Floating button position', 'commandbar' ),
 			array( $this, 'field_select' ),
 			'commandbar',
 			'commandbar_general',
 			array(
 				'key'     => 'trigger_button_position',
 				'options' => array(
-					'bottom-right' => __( 'Bottom Right', 'commandbar-smart-admin-navigation' ),
-					'bottom-left'  => __( 'Bottom Left', 'commandbar-smart-admin-navigation' ),
+					'bottom-right' => __( 'Bottom Right', 'commandbar' ),
+					'bottom-left'  => __( 'Bottom Left', 'commandbar' ),
 				),
 			)
 		);
 
 		add_settings_field(
 			'show_recent_commands',
-			__( 'Show recent commands', 'commandbar-smart-admin-navigation' ),
+			__( 'Show recent commands', 'commandbar' ),
 			array( $this, 'field_checkbox' ),
 			'commandbar',
 			'commandbar_general',
 			array(
 				'key'         => 'show_recent_commands',
-				'description' => __( 'Show recently executed commands when the palette opens with an empty input.', 'commandbar-smart-admin-navigation' ),
+				'description' => __( 'Show recently executed commands when the palette opens with an empty input.', 'commandbar' ),
 			)
 		);
 
 		add_settings_field(
 			'recent_commands_count',
-			__( 'Number of recent commands', 'commandbar-smart-admin-navigation' ),
+			__( 'Number of recent commands', 'commandbar' ),
 			array( $this, 'field_number' ),
 			'commandbar',
 			'commandbar_general',
@@ -129,68 +129,68 @@ class CommandBar_Settings {
 		// ── Appearance Section ───────────────────────────────────────────────
 		add_settings_section(
 			'commandbar_appearance',
-			__( 'Appearance', 'commandbar-smart-admin-navigation' ),
+			__( 'Appearance', 'commandbar' ),
 			'__return_false',
 			'commandbar'
 		);
 
 		add_settings_field(
 			'palette_theme',
-			__( 'Palette theme', 'commandbar-smart-admin-navigation' ),
+			__( 'Palette theme', 'commandbar' ),
 			array( $this, 'field_select' ),
 			'commandbar',
 			'commandbar_appearance',
 			array(
 				'key'     => 'palette_theme',
 				'options' => array(
-					'auto'  => __( 'Auto (follows WordPress admin scheme)', 'commandbar-smart-admin-navigation' ),
-					'light' => __( 'Light', 'commandbar-smart-admin-navigation' ),
-					'dark'  => __( 'Dark', 'commandbar-smart-admin-navigation' ),
+					'auto'  => __( 'Auto (follows WordPress admin scheme)', 'commandbar' ),
+					'light' => __( 'Light', 'commandbar' ),
+					'dark'  => __( 'Dark', 'commandbar' ),
 				),
 			)
 		);
 
 		add_settings_field(
 			'show_command_icons',
-			__( 'Show command icons', 'commandbar-smart-admin-navigation' ),
+			__( 'Show command icons', 'commandbar' ),
 			array( $this, 'field_checkbox' ),
 			'commandbar',
 			'commandbar_appearance',
 			array(
 				'key'         => 'show_command_icons',
-				'description' => __( 'Display Dashicons next to each command in the results list.', 'commandbar-smart-admin-navigation' ),
+				'description' => __( 'Display Dashicons next to each command in the results list.', 'commandbar' ),
 			)
 		);
 
 		add_settings_field(
 			'show_shortcut_hints',
-			__( 'Show keyboard shortcut hints', 'commandbar-smart-admin-navigation' ),
+			__( 'Show keyboard shortcut hints', 'commandbar' ),
 			array( $this, 'field_checkbox' ),
 			'commandbar',
 			'commandbar_appearance',
 			array(
 				'key'         => 'show_shortcut_hints',
-				'description' => __( 'Show keyboard shortcut badges inside command results.', 'commandbar-smart-admin-navigation' ),
+				'description' => __( 'Show keyboard shortcut badges inside command results.', 'commandbar' ),
 			)
 		);
 
 		// ── Advanced Section ─────────────────────────────────────────────────
 		add_settings_section(
 			'commandbar_advanced',
-			__( 'Advanced', 'commandbar-smart-admin-navigation' ),
+			__( 'Advanced', 'commandbar' ),
 			'__return_false',
 			'commandbar'
 		);
 
 		add_settings_field(
 			'enabled_roles',
-			__( 'Enable for these roles', 'commandbar-smart-admin-navigation' ),
+			__( 'Enable for these roles', 'commandbar' ),
 			array( $this, 'field_roles' ),
 			'commandbar',
 			'commandbar_advanced',
 			array(
 				'key'         => 'enabled_roles',
-				'description' => __( 'CommandBar will only be loaded for users with one of the selected roles.', 'commandbar-smart-admin-navigation' ),
+				'description' => __( 'CommandBar will only be loaded for users with one of the selected roles.', 'commandbar' ),
 			)
 		);
 	}

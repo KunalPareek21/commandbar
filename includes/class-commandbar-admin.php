@@ -166,37 +166,37 @@ class CommandBar_Admin {
 			),
 			'i18n'         => array(
 				/* translators: Placeholder text inside the command palette input. */
-				'placeholder'          => __( 'Type a command or search\u2026', 'commandbar-smart-admin-navigation' ),
+				'placeholder'          => __( 'Type a command or search\u2026', 'commandbar' ),
 				/* translators: Label for the Recently Used command group. */
-				'recentLabel'          => __( 'Recently Used', 'commandbar-smart-admin-navigation' ),
+				'recentLabel'          => __( 'Recently Used', 'commandbar' ),
 				/* translators: Shown inside the palette when no results match the query. */
-				'noResults'            => __( 'No results found.', 'commandbar-smart-admin-navigation' ),
+				'noResults'            => __( 'No results found.', 'commandbar' ),
 				/* translators: Shown while REST API search is in progress. */
-				'searching'            => __( 'Searching\u2026', 'commandbar-smart-admin-navigation' ),
+				'searching'            => __( 'Searching\u2026', 'commandbar' ),
 				/* translators: Accessible label for the command palette dialog. */
-				'dialogLabel'          => __( 'Command palette', 'commandbar-smart-admin-navigation' ),
+				'dialogLabel'          => __( 'Command palette', 'commandbar' ),
 				/* translators: Tooltip on the floating trigger button. */
-				'triggerTooltip'       => __( 'Open CommandBar', 'commandbar-smart-admin-navigation' ),
+				'triggerTooltip'       => __( 'Open CommandBar', 'commandbar' ),
 				/* translators: Aria label for the close button. */
-				'closeLabel'           => __( 'Close CommandBar', 'commandbar-smart-admin-navigation' ),
+				'closeLabel'           => __( 'Close CommandBar', 'commandbar' ),
 				/* translators: Label shown inside search input when empty. */
-				'shortcutHint'         => __( 'CMD+K', 'commandbar-smart-admin-navigation' ),
+				'shortcutHint'         => __( 'CMD+K', 'commandbar' ),
 				/* translators: Confirmation prompt before executing a destructive command. */
-				'confirmLabel'         => __( 'Press Enter again to confirm', 'commandbar-smart-admin-navigation' ),
+				'confirmLabel'         => __( 'Press Enter again to confirm', 'commandbar' ),
 				/* translators: Success toast for rewrite rules flushed. */
-				'flushSuccess'         => __( 'Rewrite rules flushed successfully.', 'commandbar-smart-admin-navigation' ),
+				'flushSuccess'         => __( 'Rewrite rules flushed successfully.', 'commandbar' ),
 				/* translators: Error toast when an action fails. */
-				'actionError'          => __( 'Action failed. Please try again.', 'commandbar-smart-admin-navigation' ),
+				'actionError'          => __( 'Action failed. Please try again.', 'commandbar' ),
 				/* translators: %d is replaced with the number of search results. */
-				'resultsCount'         => __( 'Showing %d result(s)', 'commandbar-smart-admin-navigation' ),
+				'resultsCount'         => __( 'Showing %d result(s)', 'commandbar' ),
 				/* translators: Logout confirmation message. */
-				'logoutConfirm'        => __( 'Press Enter again to log out', 'commandbar-smart-admin-navigation' ),
+				'logoutConfirm'        => __( 'Press Enter again to log out', 'commandbar' ),
 				/* translators: Dark mode toggle — switched to dark. */
-				'darkModeOn'           => __( 'Dark mode enabled', 'commandbar-smart-admin-navigation' ),
+				'darkModeOn'           => __( 'Dark mode enabled', 'commandbar' ),
 				/* translators: Dark mode toggle — switched to light. */
-				'darkModeOff'          => __( 'Dark mode disabled', 'commandbar-smart-admin-navigation' ),
+				'darkModeOff'          => __( 'Dark mode disabled', 'commandbar' ),
 				/* translators: Dismiss the floating trigger button for this session. */
-				'dismissButton'        => __( 'Dismiss', 'commandbar-smart-admin-navigation' ),
+				'dismissButton'        => __( 'Dismiss', 'commandbar' ),
 			),
 		);
 	}
@@ -208,8 +208,8 @@ class CommandBar_Admin {
 	 */
 	public function add_settings_page(): void {
 		add_options_page(
-			__( 'CommandBar', 'commandbar-smart-admin-navigation' ),
-			__( 'CommandBar', 'commandbar-smart-admin-navigation' ),
+			__( 'CommandBar', 'commandbar' ),
+			__( 'CommandBar', 'commandbar' ),
 			'manage_options',
 			'commandbar',
 			array( $this, 'render_settings_page' )
@@ -227,9 +227,9 @@ class CommandBar_Admin {
 		}
 		?>
 		<div class="wrap">
-			<h1><?php echo esc_html__( 'CommandBar', 'commandbar-smart-admin-navigation' ); ?></h1>
+			<h1><?php echo esc_html__( 'CommandBar', 'commandbar' ); ?></h1>
 			<p class="description">
-				<?php esc_html_e( 'Your WordPress admin. At the speed of thought. Press CMD+K or CTRL+K anywhere in wp-admin to open the command palette.', 'commandbar-smart-admin-navigation' ); ?>
+				<?php esc_html_e( 'Your WordPress admin. At the speed of thought. Press CMD+K or CTRL+K anywhere in wp-admin to open the command palette.', 'commandbar' ); ?>
 			</p>
 
 			<?php settings_errors( 'commandbar_settings_group' ); ?>
@@ -241,63 +241,63 @@ class CommandBar_Admin {
 				echo '<div class="commandbar-settings-grid">';
 
 				echo '<div class="commandbar-settings-section">';
-				echo '<h2>' . esc_html__( 'General', 'commandbar-smart-admin-navigation' ) . '</h2>';
+				echo '<h2>' . esc_html__( 'General', 'commandbar' ) . '</h2>';
 				do_settings_sections( 'commandbar' );
 				echo '</div>';
 
 				echo '</div>';
 
-				submit_button( __( 'Save Settings', 'commandbar-smart-admin-navigation' ) );
+				submit_button( __( 'Save Settings', 'commandbar' ) );
 				?>
 			</form>
 
 			<hr />
 
-			<h2><?php esc_html_e( 'Keyboard Shortcut', 'commandbar-smart-admin-navigation' ); ?></h2>
+			<h2><?php esc_html_e( 'Keyboard Shortcut', 'commandbar' ); ?></h2>
 			<table class="form-table" role="presentation">
 				<tr>
-					<th scope="row"><?php esc_html_e( 'Open / Close', 'commandbar-smart-admin-navigation' ); ?></th>
+					<th scope="row"><?php esc_html_e( 'Open / Close', 'commandbar' ); ?></th>
 					<td>
-						<kbd>&#8984;K</kbd> <?php esc_html_e( 'on macOS', 'commandbar-smart-admin-navigation' ); ?> &nbsp;|&nbsp;
-						<kbd>Ctrl+K</kbd> <?php esc_html_e( 'on Windows / Linux', 'commandbar-smart-admin-navigation' ); ?>
+						<kbd>&#8984;K</kbd> <?php esc_html_e( 'on macOS', 'commandbar' ); ?> &nbsp;|&nbsp;
+						<kbd>Ctrl+K</kbd> <?php esc_html_e( 'on Windows / Linux', 'commandbar' ); ?>
 					</td>
 				</tr>
 				<tr>
-					<th scope="row"><?php esc_html_e( 'Navigate results', 'commandbar-smart-admin-navigation' ); ?></th>
+					<th scope="row"><?php esc_html_e( 'Navigate results', 'commandbar' ); ?></th>
 					<td>
 						<kbd>&#8593;</kbd> <kbd>&#8595;</kbd>
 					</td>
 				</tr>
 				<tr>
-					<th scope="row"><?php esc_html_e( 'Execute highlighted command', 'commandbar-smart-admin-navigation' ); ?></th>
+					<th scope="row"><?php esc_html_e( 'Execute highlighted command', 'commandbar' ); ?></th>
 					<td><kbd>Enter</kbd></td>
 				</tr>
 				<tr>
-					<th scope="row"><?php esc_html_e( 'Close palette', 'commandbar-smart-admin-navigation' ); ?></th>
+					<th scope="row"><?php esc_html_e( 'Close palette', 'commandbar' ); ?></th>
 					<td><kbd>Esc</kbd></td>
 				</tr>
 				<tr>
-					<th scope="row"><?php esc_html_e( 'Search users', 'commandbar-smart-admin-navigation' ); ?></th>
-					<td><?php esc_html_e( 'Type @ then your search term', 'commandbar-smart-admin-navigation' ); ?></td>
+					<th scope="row"><?php esc_html_e( 'Search users', 'commandbar' ); ?></th>
+					<td><?php esc_html_e( 'Type @ then your search term', 'commandbar' ); ?></td>
 				</tr>
 				<tr>
-					<th scope="row"><?php esc_html_e( 'Search settings pages', 'commandbar-smart-admin-navigation' ); ?></th>
-					<td><?php esc_html_e( 'Type > then your search term', 'commandbar-smart-admin-navigation' ); ?></td>
+					<th scope="row"><?php esc_html_e( 'Search settings pages', 'commandbar' ); ?></th>
+					<td><?php esc_html_e( 'Type > then your search term', 'commandbar' ); ?></td>
 				</tr>
 				<tr>
-					<th scope="row"><?php esc_html_e( 'Search plugins', 'commandbar-smart-admin-navigation' ); ?></th>
-					<td><?php esc_html_e( 'Type + then your search term', 'commandbar-smart-admin-navigation' ); ?></td>
+					<th scope="row"><?php esc_html_e( 'Search plugins', 'commandbar' ); ?></th>
+					<td><?php esc_html_e( 'Type + then your search term', 'commandbar' ); ?></td>
 				</tr>
 			</table>
 
 			<hr />
 
-			<h2><?php esc_html_e( 'About CommandBar', 'commandbar-smart-admin-navigation' ); ?></h2>
+			<h2><?php esc_html_e( 'About CommandBar', 'commandbar' ); ?></h2>
 			<p>
 				<?php
 				printf(
 					/* translators: 1: opening anchor tag, 2: closing anchor tag */
-					esc_html__( 'Version %1$s &mdash; %2$sView on GitHub%3$s', 'commandbar-smart-admin-navigation' ),
+					esc_html__( 'Version %1$s &mdash; %2$sView on GitHub%3$s', 'commandbar' ),
 					esc_html( COMMANDBAR_VERSION ),
 					'<a href="https://github.com/KunalPareek21/commandbar" target="_blank" rel="noopener noreferrer">',
 					'</a>'
