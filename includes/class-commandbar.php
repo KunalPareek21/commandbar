@@ -124,7 +124,7 @@ final class CommandBar {
 	 * @return string The plugin slug.
 	 */
 	public function get_plugin_name(): string {
-		return 'commandbar';
+		return 'commandbar-smart-admin-navigation';
 	}
 
 	/**

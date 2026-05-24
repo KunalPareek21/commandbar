@@ -30,7 +30,7 @@ class CommandBar_i18n {
 	 */
 	public function load_plugin_textdomain(): void {
 		load_plugin_textdomain(
-			'commandbar',
+			'commandbar-smart-admin-navigation',
 			false,
 			dirname( COMMANDBAR_PLUGIN_BASENAME ) . '/languages/'
 		);

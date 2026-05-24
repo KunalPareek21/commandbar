@@ -117,7 +117,7 @@ class CommandBar_Rest_API {
 		if ( ! is_user_logged_in() ) {
 			return new WP_Error(
 				'rest_forbidden',
-				__( 'You must be logged in to use CommandBar.', 'commandbar' ),
+				__( 'You must be logged in to use CommandBar.', 'commandbar-smart-admin-navigation' ),
 				array( 'status' => 401 )
 			);
 		}
@@ -191,20 +191,20 @@ class CommandBar_Rest_API {
 				if ( ! current_user_can( 'manage_options' ) ) {
 					return $this->error_response(
 						'rest_forbidden',
-						__( 'You do not have permission to perform this action.', 'commandbar' ),
+						__( 'You do not have permission to perform this action.', 'commandbar-smart-admin-navigation' ),
 						403
 					);
 				}
 				flush_rewrite_rules();
 				return $this->success_response(
 					array(),
-					__( 'Rewrite rules flushed successfully.', 'commandbar' )
+					__( 'Rewrite rules flushed successfully.', 'commandbar-smart-admin-navigation' )
 				);
 
 			default:
 				return $this->error_response(
 					'invalid_action',
-					__( 'Unknown action requested.', 'commandbar' ),
+					__( 'Unknown action requested.', 'commandbar-smart-admin-navigation' ),
 					400
 				);
 		}
@@ -240,10 +240,10 @@ class CommandBar_Rest_API {
 			}
 
 			$status_labels = array(
-				'publish' => __( 'Published', 'commandbar' ),
-				'draft'   => __( 'Draft', 'commandbar' ),
-				'pending' => __( 'Pending Review', 'commandbar' ),
-				'future'  => __( 'Scheduled', 'commandbar' ),
+				'publish' => __( 'Published', 'commandbar-smart-admin-navigation' ),
+				'draft'   => __( 'Draft', 'commandbar-smart-admin-navigation' ),
+				'pending' => __( 'Pending Review', 'commandbar-smart-admin-navigation' ),
+				'future'  => __( 'Scheduled', 'commandbar-smart-admin-navigation' ),
 			);
 
 			$results[] = array(
@@ -251,7 +251,7 @@ class CommandBar_Rest_API {
 				'title'       => get_the_title( $post ),
 				'description' => sprintf(
 					/* translators: 1: Post type label, 2: Post status label */
-					__( '%1$s · %2$s', 'commandbar' ),
+					__( '%1$s · %2$s', 'commandbar-smart-admin-navigation' ),
 					get_post_type_object( $post->post_type )->labels->singular_name ?? $post_type,
 					$status_labels[ $post->post_status ] ?? $post->post_status
 				),
@@ -259,8 +259,8 @@ class CommandBar_Rest_API {
 				'type'        => $post_type,
 				'icon'        => ( 'page' === $post_type ) ? 'admin-page' : 'admin-post',
 				'group'       => ( 'page' === $post_type )
-					? __( 'Pages', 'commandbar' )
-					: __( 'Posts', 'commandbar' ),
+					? __( 'Pages', 'commandbar-smart-admin-navigation' )
+					: __( 'Posts', 'commandbar-smart-admin-navigation' ),
 			);
 		}
 
@@ -300,14 +300,14 @@ class CommandBar_Rest_API {
 				'title'       => $user->display_name,
 				'description' => sprintf(
 					/* translators: 1: Username/login, 2: Role name */
-					__( '@%1$s · %2$s', 'commandbar' ),
+					__( '@%1$s · %2$s', 'commandbar-smart-admin-navigation' ),
 					$user->user_login,
 					$role_name
 				),
 				'url'         => get_edit_user_link( $user->ID ),
 				'type'        => 'user',
 				'icon'        => 'admin-users',
-				'group'       => __( 'Users', 'commandbar' ),
+				'group'       => __( 'Users', 'commandbar-smart-admin-navigation' ),
 			);
 		}
 
@@ -348,12 +348,12 @@ class CommandBar_Rest_API {
 				'id'          => sanitize_key( $plugin_file ),
 				'title'       => $plugin_data['Name'],
 				'description' => $is_active
-					? __( 'Active', 'commandbar' )
-					: __( 'Inactive', 'commandbar' ),
+					? __( 'Active', 'commandbar-smart-admin-navigation' )
+					: __( 'Inactive', 'commandbar-smart-admin-navigation' ),
 				'url'         => admin_url( 'plugins.php' ),
 				'type'        => 'plugin',
 				'icon'        => 'admin-plugins',
-				'group'       => __( 'Plugins', 'commandbar' ),
+				'group'       => __( 'Plugins', 'commandbar-smart-admin-navigation' ),
 			);
 
 			++$count;

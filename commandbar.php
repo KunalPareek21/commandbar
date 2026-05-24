@@ -8,7 +8,7 @@
  * Author URI:  https://kunalpareek.in
  * License:     GPL v2 or later
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain: commandbar
+ * Text Domain: commandbar-smart-admin-navigation
  * Domain Path: /languages
  * Requires at least: 6.3
  * Requires PHP: 8.0
