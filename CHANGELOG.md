@@ -7,6 +7,15 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 
 ---
 
+## [1.0.3] - 2026-05-24
+
+### Fixed
+
+- Resolved WordPress.org Plugin Check warnings for uninstall variable prefixes, translation loading, and compatibility metadata.
+- Updated WordPress compatibility metadata to tested up to 7.0.
+
+---
+
 ## [1.0.0] — 2026-05-20
 
 ### Added

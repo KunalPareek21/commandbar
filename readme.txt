@@ -3,7 +3,7 @@ Contributors:      kunalpareek
 Tags:              keyboard, admin, command-palette, productivity, developer-tools
 Requires at least: 6.3
 Tested up to:      7.0
-Stable tag:        1.0.2
+Stable tag:        1.0.3
 Requires PHP:      8.0
 License:           GPLv2 or later
 License URI:       https://www.gnu.org/licenses/gpl-2.0.html
@@ -197,6 +197,10 @@ Settings are preserved on deactivation. They are only removed when you delete (u
 
 == Changelog ==
 
+= 1.0.3 =
+* Fix: Resolve WordPress.org Plugin Check warnings for uninstall variable prefixes, translation loading, and compatibility metadata.
+* Update: Mark plugin as tested up to WordPress 7.0.
+
 = 1.0.2 =
 * Fix: Floating trigger button now correctly shows WordPress blue background (moved --cb-accent CSS variable to :root scope)
 * Fix: Palette theme (Dark/Light) now correctly applies to the floating trigger button on page load
@@ -229,6 +233,9 @@ Settings are preserved on deactivation. They are only removed when you delete (u
 * REST API results cached 60 seconds per user
 
 == Upgrade Notice ==
+
+= 1.0.3 =
+Plugin Check compatibility fixes and WordPress 7.0 tested-up-to metadata update.
 
 = 1.0.2 =
 Bug fix: floating trigger button now displays correct background colour in all themes. Recommended update for all users.
