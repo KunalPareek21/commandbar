@@ -1,159 +1,369 @@
 # CommandBar
 
-**Your WordPress admin. At the speed of thought.**
+Your WordPress admin. At the speed of thought.
 
-A lightweight, keyboard-first command palette for the WordPress admin. Press **CMD+K** on Mac or **CTRL+K** on Windows/Linux from *anywhere* in `wp-admin` to instantly search posts, pages, users, plugins, settings, and run actions — without touching the mouse.
+CommandBar is a lightweight, keyboard-first command palette for the WordPress admin area. Press `CMD + K` on macOS or `CTRL + K` on Windows/Linux from anywhere inside `wp-admin` to instantly search posts, pages, users, plugins, settings, and execute actions without leaving the keyboard.
 
----
-
-## Features
-
-- **30+ built-in commands** across every area of wp-admin
-- **Fuzzy search** across command titles, descriptions, and keyword aliases
-- **Live REST API search** for posts, pages, users, and plugins
-- **Search prefixes** — `@` for users, `>` for settings, `+` for plugins
-- **Recent commands** — last N used commands shown on open (localStorage)
-- **Server-side actions** — Flush Rewrite Rules, Toggle Dark Mode, Log Out
-- **Floating trigger button** — dismissible per session, configurable position
-- **Settings page** — minimal options, zero required configuration
-- **`commandbar_commands` filter** — add custom commands from any plugin or theme
-- **Zero frontend footprint** — no JS or CSS on the site's public pages
-- **WCAG 2.1 AA** — full keyboard navigation, ARIA, focus trap, screen reader support
-- **RTL support** — full bidirectional layout
-- **Multisite compatible**
-- **All WordPress admin colour schemes** supported
+Inspired by modern developer tooling and command palettes, CommandBar brings fast navigation and workflow acceleration to WordPress while remaining fully native to the WordPress ecosystem.
 
 ---
 
-## Installation
+# Why CommandBar Exists
+
+Large WordPress admin workflows often involve:
+- deeply nested menus
+- repetitive navigation
+- excessive clicking
+- fragmented interfaces
+- slow context switching
+
+CommandBar was built to reduce interaction cost inside `wp-admin` by introducing a fast, keyboard-first workflow while still respecting:
+- WordPress admin conventions
+- accessibility standards
+- extensibility patterns
+- long-term maintainability
+- low-overhead architecture
+
+The plugin intentionally avoids:
+- frontend asset loading
+- heavy frameworks
+- unnecessary abstractions
+- visual clutter
+
+in favor of a clean, WordPress-native engineering approach.
+
+---
+
+# Features
+
+- 30+ built-in commands across WordPress admin
+- Keyboard-first navigation
+- Fuzzy search across commands and aliases
+- Live REST API search for:
+  - posts
+  - pages
+  - users
+  - plugins
+- Search prefixes:
+  - `@` → users
+  - `>` → settings
+  - `+` → plugins
+- Recent commands persistence using localStorage
+- Server-side actions:
+  - Flush Rewrite Rules
+  - Toggle Dark Mode
+  - Log Out
+- Floating trigger button
+- Configurable settings page
+- Extensible command system via filters
+- Zero frontend footprint
+- Full WCAG 2.1 AA accessibility support
+- RTL support
+- Multisite compatible
+- Works with all WordPress admin colour schemes
+
+---
+
+# Installation
+
+## WordPress Plugin Directory
+
+1. Open:
+   `Plugins → Add New`
+2. Search:
+   `CommandBar`
+3. Install and activate
+
+---
+
+## Manual Installation
 
 ```bash
-# From the WordPress plugin directory
-# Search "CommandBar" in Plugins → Add New
-
-# Or manually:
 cd wp-content/plugins
 git clone https://github.com/KunalPareek21/commandbar commandbar
 ```
 
-Then activate from **Plugins → Installed Plugins**.
+Then activate the plugin from:
+
+```txt
+Plugins → Installed Plugins
+```
 
 ---
 
-## Usage
+# Usage
 
 | Action | Shortcut |
-|--------|----------|
-| Open / Close palette | `CMD+K` / `Ctrl+K` |
-| Navigate results | `↑` `↓` or `Tab` / `Shift+Tab` |
-| Execute highlighted result | `Enter` |
-| Close palette | `Esc` or click outside |
-| Jump to first result | `Home` |
-| Jump to last result | `End` |
-| Search users | `@` + query |
-| Search settings | `>` + query |
-| Search plugins | `+` + query |
+|---|---|
+| Open / Close palette | CMD + K / CTRL + K |
+| Navigate results | ↑ ↓ or Tab / Shift + Tab |
+| Execute command | Enter |
+| Close palette | Esc |
+| Jump to first result | Home |
+| Jump to last result | End |
+| Search users | @ + query |
+| Search settings | > + query |
+| Search plugins | + + query |
 
 ---
 
-## Extending — Adding Custom Commands
+# Extending CommandBar
+
+CommandBar is intentionally designed to be extensible using native WordPress hooks.
+
+Third-party plugins and themes can register custom commands using the `commandbar_commands` filter.
+
+Example:
 
 ```php
 add_filter( 'commandbar_commands', function( array $commands ): array {
+
     $commands[] = [
         'id'          => 'my-custom-command',
         'title'       => 'Open My Plugin',
         'description' => 'Navigate to My Plugin settings',
         'keywords'    => [ 'my plugin', 'custom', 'settings' ],
-        'icon'        => 'admin-settings',   // Dashicon slug
-        'type'        => 'navigate',          // 'navigate' | 'action'
+        'icon'        => 'admin-settings',
+        'type'        => 'navigate',
         'url'         => admin_url( 'admin.php?page=my-plugin' ),
-        'capability'  => 'manage_options',    // WP capability gate
-        'group'       => 'My Plugin',         // Group label in palette
+        'capability'  => 'manage_options',
+        'group'       => 'My Plugin',
         'shortcut'    => '',
         'confirm'     => false,
     ];
+
     return $commands;
+
 } );
 ```
 
-See [`docs/extending.md`](docs/extending.md) for full documentation.
+See:
+
+```txt
+docs/extending.md
+```
+
+for complete developer documentation.
 
 ---
 
-## Architecture
+# Engineering Decisions
 
-```
+## Vanilla JavaScript Over Frameworks
+
+CommandBar intentionally uses lightweight vanilla JavaScript instead of large frontend frameworks in order to:
+- reduce admin overhead
+- simplify maintenance
+- minimize dependencies
+- improve long-term stability
+- avoid unnecessary bundle complexity
+
+---
+
+## Separation of Concerns
+
+Search logic, keyboard interactions, actions, and rendering responsibilities are isolated into separate modules to improve:
+- maintainability
+- extensibility
+- debugging
+- testing
+- long-term scalability
+
+---
+
+## WordPress-Native Extensibility
+
+Commands are extensible through native WordPress hooks rather than requiring direct plugin modification.
+
+This allows:
+- safer customization
+- plugin interoperability
+- ecosystem compatibility
+
+---
+
+## Zero Frontend Footprint
+
+The plugin loads:
+- no JavaScript
+- no CSS
+- no assets
+
+on the public-facing frontend.
+
+All functionality remains isolated to `wp-admin`.
+
+---
+
+# Architecture
+
+```txt
 commandbar/
 ├── admin/
-│   ├── css/commandbar.css              # All palette and settings styles
+│   ├── css/
+│   │   └── commandbar.css
 │   └── js/
-│       ├── commandbar-data.js          # Data accessors — no logic
-│       ├── commandbar-search.js        # Fuzzy + REST API search
-│       ├── commandbar-actions.js       # Command execution, toasts, localStorage
-│       ├── commandbar-keyboard.js      # Keyboard shortcuts and focus trap
-│       └── commandbar.js               # Main entry point — mounts and orchestrates
+│       ├── commandbar-data.js
+│       ├── commandbar-search.js
+│       ├── commandbar-actions.js
+│       ├── commandbar-keyboard.js
+│       └── commandbar.js
+│
 ├── includes/
-│   ├── class-commandbar.php            # Main plugin class
-│   ├── class-commandbar-loader.php     # Hook registration
-│   ├── class-commandbar-i18n.php       # Text domain loading
-│   ├── class-commandbar-activator.php  # Activation defaults
+│   ├── class-commandbar.php
+│   ├── class-commandbar-loader.php
+│   ├── class-commandbar-i18n.php
+│   ├── class-commandbar-activator.php
 │   ├── class-commandbar-deactivator.php
-│   ├── class-commandbar-admin.php      # Asset enqueue, settings page
-│   ├── class-commandbar-commands.php   # Built-in command registry
-│   ├── class-commandbar-rest-api.php   # REST endpoints
-│   └── class-commandbar-settings.php  # Settings API registration
-├── languages/commandbar.pot
-├── docs/                               # Developer documentation
+│   ├── class-commandbar-admin.php
+│   ├── class-commandbar-commands.php
+│   ├── class-commandbar-rest-api.php
+│   └── class-commandbar-settings.php
+│
+├── languages/
+│   └── commandbar.pot
+│
+├── docs/
 ├── uninstall.php
-├── commandbar.php                      # Plugin header + bootstrap
-├── readme.txt                          # WordPress.org readme
+├── commandbar.php
+├── readme.txt
 └── CHANGELOG.md
 ```
 
-See [`docs/architecture.md`](docs/architecture.md) for in-depth explanation of every decision.
+Detailed architecture documentation:
+
+```txt
+docs/architecture.md
+```
 
 ---
 
-## Security
+# Accessibility
 
-- All REST endpoints require authentication + nonce (`X-WP-Nonce`)
-- Every endpoint performs capability checks before returning data
-- All inputs sanitised (`sanitize_text_field`, `sanitize_key`, `absint`)
-- All outputs escaped (`esc_html`, `esc_url`, `esc_attr`, `wp_json_encode`)
-- Zero external HTTP requests
-- DOM manipulation uses `textContent` — never `innerHTML` for user content
+CommandBar is designed with accessibility as a first-class engineering requirement.
 
----
-
-## Performance
-
-- Palette opens in **< 100ms** (no network required for static commands)
-- Dynamic search results in **< 500ms** (REST API + 60s transient cache)
-- Plugin adds **zero assets to the frontend**
-- All JS is vanilla ES6+ — no jQuery, no frameworks, no bundler required
+Supported accessibility features include:
+- WCAG 2.1 AA compliance
+- Full keyboard navigation
+- Focus trap management
+- ARIA labels and semantics
+- Screen reader compatibility
+- Reduced motion support
+- High contrast compatibility
+- RTL support
 
 ---
 
-## Requirements
+# Security
+
+Security considerations include:
+
+- Authentication required for all REST endpoints
+- Nonce validation using `X-WP-Nonce`
+- Capability checks before all privileged actions
+- Input sanitization:
+  - `sanitize_text_field`
+  - `sanitize_key`
+  - `absint`
+- Output escaping:
+  - `esc_html`
+  - `esc_attr`
+  - `esc_url`
+  - `wp_json_encode`
+- No unsafe HTML rendering
+- No external HTTP requests
+- DOM manipulation uses `textContent` instead of `innerHTML`
+
+---
+
+# Performance
+
+Performance goals:
+- Palette opens in under 100ms
+- Minimal runtime overhead
+- Zero frontend impact
+- Fast dynamic search responses
+- Lightweight admin-only asset loading
+
+Implementation details:
+- Static commands require no network requests
+- REST API search responses cached with transients
+- Vanilla ES6+ JavaScript
+- No jQuery dependency
+- No build system required
+
+---
+
+# Requirements
 
 | Requirement | Minimum |
-|-------------|---------|
+|---|---|
 | WordPress | 6.3 |
 | PHP | 8.0 |
-| Browsers | Chrome, Firefox, Safari, Edge (all modern) |
+| Browser Support | Chrome, Firefox, Safari, Edge |
 
 ---
 
-## License
+# Documentation
 
-GPL v2 or later — see [LICENSE](https://www.gnu.org/licenses/gpl-2.0.html)
+Additional documentation available in:
+
+```txt
+docs/
+```
+
+Including:
+- architecture
+- extensibility
+- performance
+- accessibility
+- customization
+- development workflow
 
 ---
 
-## Author
+# Development Philosophy
 
-**Kunal Pareek**
-- Website: [kunalpareek.in](https://kunalpareek.in)
-- Plugin URI: [kunalpareek.in/commandbar](https://kunalpareek.in/commandbar)
-- GitHub: [@KunalPareek21](https://github.com/KunalPareek21)
+CommandBar is built around a few core principles:
+
+- reduce admin friction
+- prioritize keyboard workflows
+- respect WordPress conventions
+- maintain low overhead
+- build extensible systems
+- optimize long-term maintainability
+- favor clarity over abstraction
+
+---
+
+# Roadmap
+
+Planned future improvements may include:
+- custom keyboard shortcuts
+- command usage analytics
+- global search providers
+- WooCommerce integrations
+- developer SDK helpers
+- command grouping APIs
+- Gutenberg-specific commands
+
+---
+
+# License
+
+GPL v2 or later
+
+---
+
+# Author
+
+Kunal Pareek
+
+Website:
+https://kunalpareek.in
+
+GitHub:
+https://github.com/KunalPareek21
+
+Plugin URI:
+https://kunalpareek.in/commandbar
